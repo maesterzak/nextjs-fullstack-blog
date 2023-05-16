@@ -27,8 +27,8 @@ export default function MainLayout({ children, meta, categories }) {
     return (
         <>
             <Head>
-                <title>{meta.title}</title>
-                <meta name="description" content={meta.description} />
+                <title>{meta?.title}</title>
+                <meta name="description" content={meta?.description} />
                 <link rel="icon" href="/favicon.ico" />
 
             </Head>

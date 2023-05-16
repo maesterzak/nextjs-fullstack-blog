@@ -67,7 +67,7 @@ function AdminLayout({ children }) {
     }
   }
 
-  const user = session?.data.user;
+  const user = session?.data?.user;
   console.log("jkd", user)
   if (user?.role !== "author") {
     return (
