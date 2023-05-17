@@ -68,7 +68,7 @@ function AdminLayout({ children }) {
   }
 
   const user = session?.data?.user;
-  console.log("jkd", user)
+
   if (user?.role !== "author") {
     return (
       <section className="grid h-screen place-items-center">
@@ -93,7 +93,7 @@ function AdminLayout({ children }) {
       </div>
       <div className="w-full  flex-wrap md:flex">
 
-        <animated.div style={{ ...springs }} className="w-[50%] md:w-[20%]  border-r-4 fixed md:static z-10  md:z-1 bg-[#FFF6EF]  border-[rgba(240,142,128,.1)] h-[80vh] flex flex-col text-[white] items-center gap-3 md:hidden">
+        <animated.div style={{ ...springs }} className="w-[50%] md:w-[20%]  border-r-4 fixed md:static z-10  md:z-0 bg-[#FFF6EF]  border-[rgba(240,142,128,.1)] h-[80vh] flex flex-col text-[white] items-center gap-3 md:hidden">
           <div className="md:hidden flex w-full justify-end">
             <button onClick={() => toggleSideBar('close')} className="text-black p-2 font-extrabold">X</button>
           </div>
@@ -129,7 +129,7 @@ function AdminLayout({ children }) {
           </Link>
         </animated.div>
 
-        <div className="w-[50%] md:w-[20%]  border-r-4 fixed md:static z-10  md:z-1 bg-[#FFF6EF]  border-[rgba(240,142,128,.1)] h-[80vh]  flex-col text-[white] items-center gap-3 hidden md:flex">
+        <div className="w-[50%] md:w-[20%]  border-r-4 fixed md:static  bg-[#FFF6EF]  border-[rgba(240,142,128,.1)] h-[80vh]  flex-col text-[white] items-center gap-3 hidden md:flex">
           <div className="md:hidden flex w-full justify-end">
             <button onClick={() => toggleSideBar('close')} className="text-black p-2 font-extrabold">X</button>
           </div>

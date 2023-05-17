@@ -83,7 +83,7 @@ export default function Navbar() {
           {session?.user ? <div className="flex flex-col gap-1 justify-center items-center py-4">
             <button className="bg-[#f08e80]  text-white rounded-md px-4 h-[30px] w-[90px]" onClick={() => signOut()}>Logout</button>
             {session.user.role == 'author' &&
-              <Link href={'/dashboard/admin'} className="bg-[#f08e80] text-white rounded-md px-4 h-[30px] w-[90px]" >Dashboard</Link>
+              <Link href={'/dashboard/admin'} className="bg-[#f08e80] hover:text-white text-white rounded-md px-2 h-[30px] w-[90px]" >Dashboard</Link>
             }
           </div> :
             <div className="flex flex-col gap-1 justify-center items-center py-4">

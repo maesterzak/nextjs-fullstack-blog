@@ -46,7 +46,9 @@ export default NextAuth({
 
 
             if (auth.author.length > 0) {
+
                 session.user['role'] = 'author'
+                session.user['author'] = auth.author[0].id
             }
             else {
                 session.user['role'] = 'user'

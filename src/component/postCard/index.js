@@ -1,15 +1,17 @@
 import Image from "next/image"
 import Link from "next/link"
+import parse from "html-react-parser";
 
 export default function PostCard(params) {
     const { data } = params
+    console.log("oooo", data)
     return (
 
         <div className="w-[100%] md:w-[48%] mb-10 hover:shadow-2xl p-3">
             <div className="h-50 w-full bg-black overflow-hidden relative">
                 <Image
                     alt=""
-                    src={'/img/1.jpg'}
+                    src={data.Image ?? '/img/1.jpg'}
                     width={700}
                     height={700}
                     sizes={"100vw"}
@@ -25,7 +27,7 @@ export default function PostCard(params) {
 
             </div>
             <div className="px-5 py-2 rounded-sm text-[#505050] w-[100px] mt-4 bg-[rgba(240,142,128,.1)]">
-                category
+                {data.category.name}
 
             </div>
             <div className="mt-5">
@@ -44,11 +46,11 @@ export default function PostCard(params) {
                         }}
                         className="mt-2 w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 " src="/img/1.jpg" alt="Bordered avatar" />
                 </div>
-                <span className="flex items-center ">Maesterzak</span>
+                <span className="flex items-center ">{data.author.name}</span>
             </div>
             <div className="mt-3">
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever sinc…
+                    {parse(data.body.substring(0, 100))}....
                 </p>
             </div>
         </div>

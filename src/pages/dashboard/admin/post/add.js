@@ -9,14 +9,28 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useSession } from "next-auth/react";
 import { loadCategories } from "lib/server/loadCategories";
 import { useRouter } from "next/router";
+import { useRef, useMemo } from "react";
 
-const QuillNoSSRWrapper = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-})
+
+
+
+// const QuillNoSSRWrapper = dynamic(import('react-quill'), {
+//   ssr: false,
+//   loading: () => <p>Loading ...</p>,
+// })
+const QuillNoSSRWrapper = dynamic(
+  async () => {
+    const { default: RQ } = await import('react-quill');
+    // eslint-disable-next-line react/display-name
+    return ({ forwardedRef, ...props }) => <RQ ref={forwardedRef} {...props} />;
+  },
+  { ssr: false }
+);
 
 
 export const getStaticProps = async () => {
+
+  // const [image, setImage] = useState(undefined);
   let res = await loadCategories()
   let data
   if (res.success) {
@@ -34,7 +48,9 @@ function AddPost({ categories }) {
 
   const router = useRouter()
   const session = useSession()
+  const quillRef = useRef();
   const [value, setValue] = useState("**Hello world!!!**");
+  const preset_key = 'mkultra'
 
 
   const modules = {
@@ -105,24 +121,101 @@ function AddPost({ categories }) {
     }
   }
 
-  const submitHandler = (e) => {
+  //star
+  const upload = async (formData2) => {
+    let cloud_name = 'dekwrxtrq'
+    const data5 = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
+      method: 'POST',
+      body: formData2
+    })
+
+    let response = await data5.json()
+
+    return response.secure_url
+
+  }
+
+
+  const imageHandler = (e) => {
+
+    const editor = quillRef.current.getEditor();
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "file");
+    input.setAttribute("accept", "image/*");
+    input.click();
+
+    input.onchange = async () => {
+      const file = input.files[0];
+      if (/^image\//.test(file.type)) {
+
+        const formData = new FormData();
+        formData.append("file", file);
+        await formData.append('upload_preset', preset_key);
+        const url = await upload(formData); // upload data into server or aws or cloudinary
+
+        editor.insertEmbed(editor.getSelection(), "image", url);
+      } else {
+        ErrorToast('You could only upload images.');
+      }
+    };
+  }
+  const modules2 = useMemo(() => ({
+    toolbar: {
+      container: [
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', "strike"],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' },
+        { 'indent': '-1' }, { 'indent': '+1' }],
+        ['image', "link",],
+        [{ 'color': ['#000000', '#e60000', '#ff9900', '#ffff00', '#008a00', '#0066cc', '#9933ff', '#ffffff', '#facccc', '#ffebcc', '#ffffcc', '#cce8cc', '#cce0f5', '#ebd6ff', '#bbbbbb', '#f06666', '#ffc266', '#ffff66', '#66b966', '#66a3e0', '#c285ff', '#888888', '#a10000', '#b26b00', '#b2b200', '#006100', '#0047b2', '#6b24b2', '#444444', '#5c0000', '#663d00', '#666600', '#003700', '#002966', '#3d1466'] }]
+      ],
+      handlers: {
+        image: imageHandler
+      }
+    },
+  }), [])
+
+  //end
+
+  const submitHandler = async (e) => {
+
+
+
     e.preventDefault();
     var formData = new FormData(e.target);
-    const form_values = Object.fromEntries(formData);
+    const form_values = await Object.fromEntries(formData);
+    let slug = await form_values.title.replace(/\s+/g, '-').toLowerCase()
 
-    let slug = form_values.title.replace(/\s+/g, '-').toLowerCase()
+    let secure_url
+    if (form_values.image.name != '') {
+      const formData2 = await new FormData();
+
+      // for (const file of fileInput.files) {
+      //   formData2.append('file', file);
+      // }
+      await formData2.append('file', form_values.image);
+      await formData2.append('upload_preset', preset_key);
+
+
+
+
+      secure_url = await upload(formData2)
+    }
+
 
     let data = {
 
-      authorId: 1,
+      authorId: session?.data?.user?.author,
       title: form_values.title,
       body: value,
-      image: '/img/1.jpg',
+      image: secure_url ?? '',
       summary: form_values.summary,
       categoryId: parseInt(form_values.category),
       slug: slug
 
     }
+
     addArticle(data)
 
 
@@ -155,7 +248,7 @@ function AddPost({ categories }) {
         })} */}
         <div className="h-[65vh]">
           <label>Body</label>
-          <QuillNoSSRWrapper className="h-[60vh] mb-10" value={value} onChange={setValue} modules={modules} formats={formats} theme="snow" />
+          <QuillNoSSRWrapper forwardedRef={quillRef} className="h-[60vh] mb-10" value={value} onChange={setValue} modules={modules2} formats={formats} theme="snow" />
         </div>
         <label className="mt-10">Summary</label>
         <textarea name="summary" className="p-4 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[rgba(240,142,128,.1)]" placeholder="Enter Summary"></textarea>

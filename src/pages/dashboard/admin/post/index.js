@@ -77,7 +77,7 @@ function Post({ param }) {
                                     <div className="w-[25%] md:w-[10%] h-16 ">
                                         <Image
                                             alt=""
-                                            src={'/img/1.jpg'}
+                                            src={item.image}
                                             width={700}
                                             height={700}
                                             sizes={"100vw"}

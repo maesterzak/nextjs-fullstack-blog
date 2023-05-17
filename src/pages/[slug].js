@@ -3,6 +3,8 @@ import { loadArticles } from "lib/server/loadArticles";
 import Image from "next/image";
 import Link from "next/link";
 import MainLayout from "./main_layout";
+import parse from "html-react-parser";
+
 
 // // Generates `/posts/1` and `/posts/2`
 export async function getStaticPaths() {
@@ -50,25 +52,27 @@ function Post({ article }) {
                     </div>
 
                     <div className="w-full bg-black overflow-hidden relative">
-                        <Image
-                            alt=""
-                            src={'/img/1.jpg'}
-                            width={700}
-                            height={700}
-                            sizes={"100vw"}
-                            style={{
-                                width: '100%',
-                                height: 'auto'
-                            }}
+                        {article.Image &&
+                            <Image
+                                alt=""
+                                src={article?.Image}
+                                width={700}
+                                height={700}
+                                sizes={"100vw"}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto'
+                                }}
 
 
-                        />
+                            />
+                        }
 
 
                     </div>
 
                     <div className="mt-3">
-                        {article.body}
+                        {parse(article.body)}
                     </div>
                 </div>
 
