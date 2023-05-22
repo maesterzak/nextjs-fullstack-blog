@@ -7,7 +7,7 @@ async function getArticle(req, res) {
     if (req.method === "GET") {
 
         let { id } = req.query
-        console.log("nnm", id)
+
 
         try {
 
@@ -16,14 +16,14 @@ async function getArticle(req, res) {
                     id: id
                 }
             })
-            console.log("vnn", article)
+
             if (article) {
                 return res.status(200).json({ success: true, data: article });
             } else {
                 return res.status(404).json({ success: false });
             }
         } catch (err) {
-            console.log("g error", err)
+
             return res.status(500).json({ error: "Something is wrong", tt: err });
         }
     } else {

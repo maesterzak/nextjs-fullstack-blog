@@ -5,7 +5,7 @@ async function addCategory(req, res) {
     if (req.method === "POST") {
 
         const body = req.body
-        console.log("Addii launchpad", body)
+
         try {
 
             const category = await prisma.category.create({
@@ -21,7 +21,7 @@ async function addCategory(req, res) {
                 return res.status(400).json({ success: false });
             }
         } catch (err) {
-            console.log("cc", err)
+
             return res.status(500).json({ error: "Something is wrong", tt: err });
         }
     } else {

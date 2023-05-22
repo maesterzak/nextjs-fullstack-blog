@@ -7,7 +7,7 @@ async function deleteArticle(req, res) {
     if (req.method === "DELETE") {
 
         let { id } = req.query
-        console.log("nnm", id)
+
         // id = parseInt(id)
         try {
 
@@ -24,7 +24,7 @@ async function deleteArticle(req, res) {
                 return res.status(400).json({ success: false });
             }
         } catch (err) {
-            console.log("g error", err)
+
             return res.status(500).json({ error: "Something is wrong", tt: err });
         }
     } else {

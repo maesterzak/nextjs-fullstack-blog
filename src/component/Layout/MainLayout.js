@@ -3,25 +3,19 @@ import Image from "next/image"
 import Head from "next/head"
 import { loadCategories } from "lib/server/loadCategories"
 import { useState } from "react"
+import getHandler from "@/component/formHandlers/getHandler"
+import { useEffect } from "react"
+import CategoriesComponent from "../BlogComponents/Categories"
+import MostViewed from "../BlogComponents/MostViewed"
 
-export const getStaticProps = async () => {
-    let res = await loadCategories()
-    let data
-    if (res.success) {
-        data = res.data
-    }
-    else {
-        return undefined
-    }
-    return {
-        props: { param: data }
-    }
-}
 
-export default function MainLayout({ children, meta, categories }) {
-    console.log("mm", categories, meta)
-    const [categoriesList, setCategoriesList] = useState(categories)
-    const similar = [1, 2, 4]
+
+
+
+export default function MainLayout({ children, param, meta }) {
+
+
+
 
 
     return (
@@ -32,13 +26,13 @@ export default function MainLayout({ children, meta, categories }) {
                 <link rel="icon" href="/favicon.ico" />
 
             </Head>
-            <div className="w-full flex flex-wrap px-2  justify-center gap-2">
+            <div className="w-full flex mt-5 flex-wrap px-2  justify-center gap-2">
 
                 {children}
 
 
                 <div className="w-[100%] md:w-[25%] ">
-                    <div className="bg-[#ffff] ">
+                    {/* <div className="bg-[#ffff] ">
                         <div className="p-5 border-b-2 border-[rgba(240,142,128,.1)]">
                             <span className="header w-full">MOST POPULAR</span>
 
@@ -76,30 +70,19 @@ export default function MainLayout({ children, meta, categories }) {
                         </div>
 
 
-                    </div>
+                    </div> */}
 
-                    <div className="bg-[#ffff] mt-5">
-                        <div className="p-5 border-b-2 border-[rgba(240,142,128,.1)]">
-                            <span className="header w-full">CATEGORIES</span>
+                    {/* most viewed */}
+                    <MostViewed />
 
-                        </div>
-                        <div className="flex gap-1 flex-wrap p-5">
-                            {/* {categoriesList.map((item, index) => {
-                                return (
-                                    <div key={index} className="p-2 rounded-sm text-[#505050] mt-4 bg-[rgba(240,142,128,.1)]">
-
-                                        <Link href={'#'} className="text-[#152035] ">
-                                            {item.name}
-                                        </Link>
-
-                                    </div>
-
-                                )
-                            })} */}
-                        </div>
+                    {/* most viewed */}
+                    {/* category */}
 
 
-                    </div>
+
+                    <CategoriesComponent />
+
+                    {/* category */}
 
 
 

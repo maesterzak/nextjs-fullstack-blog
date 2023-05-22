@@ -44,7 +44,7 @@ export default NextAuth({
                 }
             })
 
-
+            session.user['id'] = user.id
             if (auth.author.length > 0) {
 
                 session.user['role'] = 'author'
@@ -52,6 +52,7 @@ export default NextAuth({
             }
             else {
                 session.user['role'] = 'user'
+
             }
 
 

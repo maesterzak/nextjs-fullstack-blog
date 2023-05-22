@@ -11,14 +11,14 @@ async function getAllArticle(req, res) {
         try {
 
             const article = await prisma.article.findMany()
-            console.log("vnn", article)
+
             if (article) {
                 return res.status(200).json({ success: true, data: article });
             } else {
                 return res.status(404).json({ success: false });
             }
         } catch (err) {
-            console.log("g error", err)
+
             return res.status(500).json({ error: "Something is wrong", tt: err });
         }
     } else {

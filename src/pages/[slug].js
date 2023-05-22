@@ -2,13 +2,38 @@ import { loadArticle } from "lib/server/loadArticle";
 import { loadArticles } from "lib/server/loadArticles";
 import Image from "next/image";
 import Link from "next/link";
-import MainLayout from "./main_layout";
+import MainLayout from "../component/Layout/MainLayout";
 import parse from "html-react-parser";
+import { ToastContainer, toast } from 'react-toastify';
+import { loadComments } from "lib/server/loadComments";
+import {
+    FacebookShareButton,
+    FacebookIcon,
+    RedditShareButton,
+    RedditIcon,
+    TelegramShareButton,
+    TelegramIcon,
+    TwitterShareButton,
+    TwitterIcon,
+    WhatsappShareButton,
+    WhatsappIcon,
+    LinkedinShareButton,
+    LinkedinIcon,
+
+
+
+} from 'next-share'
+import CommentCard from "@/component/BlogComponents/CommentsCard";
+import postData from "@/component/formHandlers/postHandler";
+import { useSession } from "next-auth/react";
+import React from "react";
+
 
 
 // // Generates `/posts/1` and `/posts/2`
 export async function getStaticPaths() {
     let res = await loadArticles()
+
 
     const paths = res.data.map((post) => {
         return {
@@ -23,39 +48,108 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async (context) => {
 
+
     const slug = context.params.slug;
 
     let res = await loadArticle(slug)
 
+    let comments = await loadComments(res.data.id)
+
 
     return {
-        props: { article: res.data }
+        props: { article: res.data ?? null, comments: comments.data ?? null }
     }
 }
 
-function Post({ article }) {
-    const similar = [1, 2, 4]
-    console.log("vg", article)
+function Post({ article, comments }) {
+    console.log("lk", comments)
+    const session = useSession()
+
     let data = {
         title: 'Home Page',
         description: 'Amaizing site'
     }
 
+    const saveComment = async (body) => {
+        let url = '/api/database/article/comments/add/'
+        let res = await postData(url, body)
+        console.log("pou", res.data)
+        if (res.status == 201) {
+
+            toast.success('Comment Added', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
+        }
+        else {
+            toast.error('Something went wrong', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
+        }
+
+    }
+
+    const addComment = (e) => {
+        if (session?.data?.user?.name) {
+
+
+            e.preventDefault()
+            var formData = new FormData(e.target);
+            let form_values = Object.fromEntries(formData);
+            form_values['userId'] = session.data.user.id
+            form_values['articleId'] = article.id
+
+
+            saveComment(form_values)
+        }
+        else {
+
+            toast.error('Users must be logged in to add comments', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+
+
+    }
+
+
     return (
         <MainLayout meta={data}>
             <div className="w-[100%] md:w-[70%]  ">
                 <div className="w-[100%] p-5 bg-[#ffff]">
-                    <h1 className="header text-3xl">{article.title}</h1>
+                    <h1 className="header text-3xl font-bold">{article.title}</h1>
                     <div className="flex gap-4 align-middle h-14">
-                        <span className="flex items-center ">{article.category.name}</span>
-                        <span className="flex items-center ">May 23, 2023</span>
+                        <span className="flex items-center font-semibold">{article.category.name}</span>
+                        <span className="flex items-center font-semibold">{article.createdAt}</span>
                     </div>
 
                     <div className="w-full bg-black overflow-hidden relative">
-                        {article.Image &&
+                        {article.image &&
                             <Image
                                 alt=""
-                                src={article?.Image}
+                                src={article?.image}
                                 width={700}
                                 height={700}
                                 sizes={"100vw"}
@@ -77,81 +171,53 @@ function Post({ article }) {
                 </div>
 
                 <div className="border-t-2 p-5 bg-[#fdfdff] border-[rgba(240,142,128,.1)] flex">
-                    <span>tags</span>
+                    <div><span>tags: {article.tags != "unknown" && article.tags}</span></div>
                 </div>
 
-                <div className="border-t-2 p-2 px-5 py-0 bg-[#fdfdff] flex align-middle items-center border-[rgba(240,142,128,.1)]">
-                    <div className="w-[auto] overflow-hidden ">
-                        <Image
-                            alt=""
-                            src={'/img/facebook.svg'}
-                            width={100}
-                            height={700}
-                            // sizes={"100vw"}
-                            style={{
-                                width: '35%',
-                                height: 'auto'
-                            }}
+                <div className="border-t-2 p-2 px-5 py-0  gap-3 bg-[#fdfdff] flex align-middle items-center border-[rgba(240,142,128,.1)]">
 
 
-                        />
 
 
-                    </div>
-
-                    <div className="w-[auto] overflow-hidden ">
-                        <Image
-                            alt=""
-                            src={'/img/whatsapp.svg'}
-                            width={100}
-                            height={700}
-                            // sizes={"100vw"}
-                            style={{
-                                width: '35%',
-                                height: 'auto'
-                            }}
 
 
-                        />
+                    <FacebookShareButton
+                        url={`https://devmaesters.com/blog/${article.slug}`}
+                        quote={parse(article.summary)}
+                        hashtag={'#nextshare'}
+                    >
+                        <FacebookIcon size={32} round />
+                    </FacebookShareButton>
+                    <TwitterShareButton
+                        url={`https://devmaesters.com/blog/${article.slug}`}
+                        title={article.title}
+                    >
+                        <TwitterIcon size={32} round />
+                    </TwitterShareButton>
 
+                    <TelegramShareButton
+                        url={`https://devmaesters.com/blog/${article.slug}`}
+                        title={article.title}
+                    >
+                        <TelegramIcon size={32} round />
+                    </TelegramShareButton>
+                    <LinkedinShareButton url={`https://devmaesters.com/blog/${article.slug}`}>
+                        <LinkedinIcon size={32} round />
+                    </LinkedinShareButton>
 
-                    </div>
-
-                    <div className="w-[auto]overflow-hidden ">
-                        <Image
-                            alt=""
-                            src={'/img/twitter.svg'}
-                            width={100}
-                            height={700}
-                            // sizes={"100vw"}
-                            style={{
-                                width: '35%',
-                                height: 'auto'
-                            }}
-
-
-                        />
-
-
-                    </div>
-
-                    <div className="w-[auto] overflow-hidden ">
-                        <Image
-                            alt=""
-                            src={'/img/reddit.svg'}
-                            width={100}
-                            height={700}
-                            // sizes={"100vw"}
-                            style={{
-                                width: '35%',
-                                height: 'auto'
-                            }}
-
-
-                        />
-
-
-                    </div>
+                    <RedditShareButton
+                        url={`https://devmaesters.com/blog/${article.slug}`}
+                        title={article.title}
+                    >
+                        <RedditIcon size={32} round />
+                    </RedditShareButton>
+                    <WhatsappShareButton
+                        url={`https://devmaesters.com/blog/${article.slug}`}
+                        title={article.title}
+                        separator=":: "
+                    >
+                        <WhatsappIcon size={32} round />
+                    </WhatsappShareButton>
 
                     <div className="w-full p-5">
 
@@ -163,14 +229,14 @@ function Post({ article }) {
                 <div className="border-t-2 mt-3 p-5 bg-[#fdfdff] ">
                     <span className="header">YOU MAY LIKE THIS POST</span>
                     <div className="flex gap-2 flex-wrap">
-                        {similar.map((item, index) => {
+                        {article.similarArticles.map((item, index) => {
                             return (
 
                                 <div key={index} className="w-[100%] md:w-[32%] mb-10 hover:shadow-2xl mt-2 p-3">
                                     <div className=" w-full bg-black overflow-hidden ">
                                         <Image
                                             alt=""
-                                            src={'/img/1.jpg'}
+                                            src={item.image ?? '/img/1.jpg'}
                                             width={700}
                                             height={700}
                                             sizes={"100vw"}
@@ -186,7 +252,7 @@ function Post({ article }) {
                                     </div>
 
                                     <div className="mt-2">
-                                        <Link href={'#'} className="text-[#152035] text-1xl header">Drifting Apart, Growing Happy</Link>
+                                        <Link href={'/' + item.slug} className=" text-1xl header">{item.title}</Link>
 
                                     </div>
 
@@ -201,11 +267,26 @@ function Post({ article }) {
 
                 <div className="bg-[#fdfdff] border-t-2 mt-3 p-5 grid">
                     <span className="header mb-2">ADD A COMMENT</span>
-                    <span><i>0 comments</i></span>
-                    <div className="mt-3">
-                        <textarea className="w-[95%] outline-none min-h-[200px] border-2 border-[#f3d4bc] p-5">
+                    <span><i>{comments.length ?? 0} comments</i></span>
+                    <form onSubmit={addComment} className="mt-3">
+                        <textarea name="body" className="w-[100%] outline-none min-h-[200px] border-2 border-[#f3d4bc] p-5">
 
                         </textarea>
+                        <div>
+                            <button type={"submit"} className="bg-link w-[100%] py-2 text-[white]">Submit</button>
+                        </div>
+                    </form>
+
+                    <div className="mt-5 flex flex-col gap-4">
+                        {comments?.map((e, index) => {
+                            return (
+                                <React.Fragment key={index}>
+                                    <CommentCard data={e} />
+                                </React.Fragment>
+                            )
+                        })}
+
+
                     </div>
 
                 </div>
