@@ -62,7 +62,7 @@ export const getStaticProps = async (context) => {
 }
 
 function Post({ article, comments }) {
-    console.log("lk", comments)
+
     const session = useSession()
 
     let data = {
@@ -73,7 +73,7 @@ function Post({ article, comments }) {
     const saveComment = async (body) => {
         let url = '/api/database/article/comments/add/'
         let res = await postData(url, body)
-        console.log("pou", res.data)
+
         if (res.status == 201) {
 
             toast.success('Comment Added', {
@@ -105,31 +105,31 @@ function Post({ article, comments }) {
     }
 
     const addComment = (e) => {
-        if (session?.data?.user?.name) {
+        // if (session?.data?.user?.name) {
 
 
-            e.preventDefault()
-            var formData = new FormData(e.target);
-            let form_values = Object.fromEntries(formData);
-            form_values['userId'] = session.data.user.id
-            form_values['articleId'] = article.id
+        e.preventDefault()
+        var formData = new FormData(e.target);
+        let form_values = Object.fromEntries(formData);
+        form_values['userId'] = session.data.user.id
+        form_values['articleId'] = article.id
 
 
-            saveComment(form_values)
-        }
-        else {
+        saveComment(form_values)
+        // }
+        // else {
 
-            toast.error('Users must be logged in to add comments', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-        }
+        //     toast.error('Users must be logged in to add comments', {
+        //         position: "top-right",
+        //         autoClose: 5000,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "light",
+        //     });
+        // }
 
 
     }
@@ -138,7 +138,7 @@ function Post({ article, comments }) {
     return (
         <MainLayout meta={data}>
             <div className="w-[100%] md:w-[70%]  ">
-                <div className="w-[100%] p-5 bg-[#ffff]">
+                <div className="w-[100%] p-5 bg-secondaryBackground">
                     <h1 className="header text-3xl font-bold">{article.title}</h1>
                     <div className="flex gap-4 align-middle h-14">
                         <span className="flex items-center font-semibold">{article.category.name}</span>
@@ -170,11 +170,11 @@ function Post({ article, comments }) {
                     </div>
                 </div>
 
-                <div className="border-t-2 p-5 bg-[#fdfdff] border-[rgba(240,142,128,.1)] flex">
+                <div className="border-t-2 p-5 bg-secondaryBackground border-[rgba(240,142,128,.1)] flex">
                     <div><span>tags: {article.tags != "unknown" && article.tags}</span></div>
                 </div>
 
-                <div className="border-t-2 p-2 px-5 py-0  gap-3 bg-[#fdfdff] flex align-middle items-center border-[rgba(240,142,128,.1)]">
+                <div className="border-t-2 p-2 px-5 py-0  gap-3 bg-secondaryBackground flex align-middle items-center border-[rgba(240,142,128,.1)]">
 
 
 
@@ -226,7 +226,7 @@ function Post({ article, comments }) {
 
                 </div>
 
-                <div className="border-t-2 mt-3 p-5 bg-[#fdfdff] ">
+                <div className="border-t-2 mt-3 p-5 bg-secondaryBackground ">
                     <span className="header">YOU MAY LIKE THIS POST</span>
                     <div className="flex gap-2 flex-wrap">
                         {article.similarArticles.map((item, index) => {
@@ -265,7 +265,7 @@ function Post({ article, comments }) {
                     </div>
                 </div>
 
-                <div className="bg-[#fdfdff] border-t-2 mt-3 p-5 grid">
+                <div className="bg-secondaryBackground border-t-2 mt-3 p-5 grid">
                     <span className="header mb-2">ADD A COMMENT</span>
                     <span><i>{comments.length ?? 0} comments</i></span>
                     <form onSubmit={addComment} className="mt-3">

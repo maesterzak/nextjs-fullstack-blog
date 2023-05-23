@@ -33,10 +33,11 @@ export default function CategoriesComponent() {
                 </> : <>
 
                     {categoriesList?.map((item, index) => {
+                        //former category classes className="p-2 rounded-sm text-[#505050] mt-4 bg-[rgba(240,142,128,.1)]"
                         return (
-                            <div key={index} className="p-2 rounded-sm text-[#505050] mt-4 bg-[rgba(240,142,128,.1)]">
-
-                                <Link href={'#'} className="text-[#152035] ">
+                            <div key={index} className="p-2 rounded-sm  mt-4 bg-primaryBackground">
+                                {/* former link class  text-[#152035]*/}
+                                <Link href={'/category/' + item.name} className="">
                                     {item.name}
                                 </Link>
 

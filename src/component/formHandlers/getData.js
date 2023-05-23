@@ -15,7 +15,7 @@ const getData = async (url, form_values) => {
         //it returns status of 200 if it was successfull and 400 if not successfull
 
         let response = await res.json()
-        console.log("dfs", response)
+
         if (res.status === 200) {
             return { status: "success", data: response, code: res.status }
 

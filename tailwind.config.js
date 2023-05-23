@@ -15,10 +15,12 @@ module.exports = {
 
     },
     colors: {
-      primaryBackground: "#FFF6EF",
-      secondaryBackground: "#ffff",
-      link: "#f08e80",
+      primaryBackground: "#03031b",
+      secondaryBackground: "#16151d",
+      link: "#ffa000",
       textLigh: "",
+      categoryBackgroundColor: "rgba(240,142,128,.1)",
+      categoryLinkColor: "#152035"
 
 
 

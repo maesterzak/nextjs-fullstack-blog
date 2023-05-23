@@ -32,45 +32,7 @@ export default function MainLayout({ children, param, meta }) {
 
 
                 <div className="w-[100%] md:w-[25%] ">
-                    {/* <div className="bg-[#ffff] ">
-                        <div className="p-5 border-b-2 border-[rgba(240,142,128,.1)]">
-                            <span className="header w-full">MOST POPULAR</span>
 
-                        </div>
-                        <div>
-                            {similar.map((item, index) => {
-                                return (
-                                    <div key={index} className="flex w-full p-4">
-                                        <div className="w-[25%] h-16 ">
-                                            <Image
-                                                alt=""
-                                                src={'/img/1.jpg'}
-                                                width={700}
-                                                height={700}
-                                                sizes={"100vw"}
-                                                style={{
-                                                    width: '100%',
-                                                    height: '100%'
-                                                }}
-
-
-                                            />
-
-                                        </div>
-                                        <div className="w-[75%] px-3 grid">
-                                            <Link href={'#'} className="text-[#152035] text-[14px] header">Drifting Apart Growing Happy</Link>
-                                            <span className="text-[13px]">12, may 2018</span>
-                                        </div>
-
-
-                                    </div>
-
-                                )
-                            })}
-                        </div>
-
-
-                    </div> */}
 
                     {/* most viewed */}
                     <MostViewed />

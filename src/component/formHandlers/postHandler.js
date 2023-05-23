@@ -14,7 +14,7 @@ const postData = async (url, form_values) => {
     //it returns status of 201 if it was successfull and 400 if not successfull
 
     let response = await res.json()
-    console.log("ll", response)
+
     if (res.status === 201) {
         return { status: 'success', code: res.status, data: response.data }
 

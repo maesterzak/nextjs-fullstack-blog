@@ -11,7 +11,7 @@ export default function PostCard(params) {
 
     return (
 
-        <div className="w-[100%] md:w-[48%] mb-10 hover:shadow-2xl p-2">
+        <div className="w-[100%] md:w-[48%] mb-10 hover:shadow-2xl bg-secondaryBackground p-2">
             <div className="h-50 w-full bg-black overflow-hidden relative">
                 <Image
                     alt=""
@@ -31,7 +31,7 @@ export default function PostCard(params) {
 
             </div>
             <div className="flex justify-between items-end">
-                <div className="px-5 font-semibold py-2 rounded-sm text-[#505050] w-[100px] mt-4 bg-[rgba(240,142,128,.1)]">
+                <div className="px-5 font-semibold py-2 rounded-sm text-[#505050] w-[100px] mt-4 bg-secondaryBackground">
                     {data.category.name}
 
 

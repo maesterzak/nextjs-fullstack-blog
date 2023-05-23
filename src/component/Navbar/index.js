@@ -38,7 +38,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="h-24 w-full sticky px-5 py-5 z-10 bg-[#FFF6EF] top-0 flex justify-between align-middle">
+    <nav className="h-24 w-full sticky px-5 py-5 z-10 bg-primaryBackground top-0 flex justify-between align-middle">
       <div>
         <span className="text-6xl site-name">
           <Link href={"/"}>Quno</Link>
