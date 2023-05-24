@@ -269,7 +269,7 @@ function Post({ article, comments }) {
                     <span className="header mb-2">ADD A COMMENT</span>
                     <span><i>{comments.length ?? 0} comments</i></span>
                     <form onSubmit={addComment} className="mt-3">
-                        <textarea name="body" className="w-[100%] outline-none min-h-[200px] border-2 border-[#f3d4bc] p-5">
+                        <textarea name="body" className="w-[100%] outline-none min-h-[200px] border-2 border-link p-5">
 
                         </textarea>
                         <div>
