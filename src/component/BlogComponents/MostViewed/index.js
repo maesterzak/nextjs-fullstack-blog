@@ -20,7 +20,7 @@ export default function MostViewed() {
     }, [])
 
     return (
-        <div className="bg-secondaryBackground ">
+        <div className="bg-secondaryBackground text-secondLink">
             <div className="p-5 border-b-2 border-[rgba(240,142,128,.1)]">
                 <span className="header w-full">MOST POPULAR</span>
 
@@ -54,7 +54,7 @@ export default function MostViewed() {
 
                                     </div>
                                     <div className="w-[75%] px-3 grid">
-                                        <Link href={'/' + item.slug} className=" text-[14px] header">{item.title}</Link>
+                                        <Link href={'/' + item.slug} className=" text-[14px] text-secondLink header">{item.title}</Link>
                                         <span className="text-[13px]">{item.createdAt}</span>
                                     </div>
 

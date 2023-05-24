@@ -65,7 +65,7 @@ model VerificationToken {
 }
 
 model Author {
-  id      Int       @id @default(autoincrement())
+  id      String    @id @default(cuid())
   name    String
   email   String    @default("unknown")
   image   String
@@ -76,7 +76,7 @@ model Author {
 }
 
 model Category {
-  id      Int       @id @default(autoincrement())
+  id      String    @id @default(cuid())
   name    String    @unique
   article Article[]
 }
@@ -84,13 +84,13 @@ model Category {
 model Article {
   id         String    @id @default(cuid())
   author     Author    @relation(fields: [authorId], references: [id])
-  authorId   Int
+  authorId   String
   title      String
   body       String
   image      String
   summary    String
   category   Category  @relation(fields: [categoryId], references: [id])
-  categoryId Int
+  categoryId String
   slug       String    @unique @default("Uknown")
   views      Int       @default(0)
   createdAt  DateTime  @default(now())

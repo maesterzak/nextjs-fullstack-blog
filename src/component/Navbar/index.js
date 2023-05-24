@@ -76,19 +76,19 @@ export default function Navbar() {
             alt="Bordered avatar"
           />
         </div>
-        <animated.div style={{ ...springs }} className="absolute shadow-2xl bg-[#f7dac4]   w-[200px] right-1  flex  flex-col ">
-          <div onClick={() => toggleUser('close')} className="flex justify-end cursor-pointer font-bold p-2 text-[#f08e80]">
+        <animated.div style={{ ...springs }} className="absolute shadow-2xl bg-secondaryBackground   w-[200px] right-1  flex  flex-col ">
+          <div onClick={() => toggleUser('close')} className="flex justify-end cursor-pointer font-bold p-2 text-secondLink">
             X
           </div>
           {session?.user ? <div className="flex flex-col gap-1 justify-center items-center py-4">
-            <button className="bg-[#f08e80]  text-white rounded-md px-4 h-[30px] w-[90px]" onClick={() => signOut()}>Logout</button>
+            <button className="bg-link  text-secondLink rounded-md px-4 h-[30px] w-[90px]" onClick={() => signOut()}>Logout</button>
             {session.user.role == 'author' &&
-              <Link href={'/dashboard/admin'} className="bg-[#f08e80] hover:text-white text-white rounded-md px-2 h-[30px] w-[90px]" >Dashboard</Link>
+              <Link href={'/dashboard/admin'} className="bg-link text-secondLink hover:text-secondLink text-white rounded-md px-2 h-[30px] w-[90px]" >Dashboard</Link>
             }
           </div> :
             <div className="flex flex-col gap-1 justify-center items-center py-4">
-              <button className="bg-[#f08e80] text-white rounded-md px-4 h-[30px] w-[90px]" onClick={() => signIn()}>Login</button>
-              <button className="bg-[#f08e80] text-white rounded-md px-4 h-[30px] w-[90px]" onClick={() => signIn()}>Signup</button>
+              <button className="bg-link text-secondLink rounded-md px-4 h-[30px] w-[90px]" onClick={() => signIn()}>Login</button>
+              <button className="bg-link text-secondLink rounded-md px-4 h-[30px] w-[90px]" onClick={() => signIn()}>Signup</button>
 
             </div>
 

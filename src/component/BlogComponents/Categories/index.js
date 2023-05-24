@@ -18,8 +18,8 @@ export default function CategoriesComponent() {
     }, [])
 
     return (
-        <div className="bg-secondaryBackground mt-5">
-            <div className="p-5 border-b-2 border-[rgba(240,142,128,.1)]">
+        <div className="bg-secondaryBackground mt-5 text-secondLink">
+            <div className="p-5 border-b-2 border-[rgba(240,142,128,.1)] text-secondLink">
                 <span className="header w-full">CATEGORIES</span>
 
             </div>

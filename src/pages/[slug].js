@@ -137,8 +137,8 @@ function Post({ article, comments }) {
 
     return (
         <MainLayout meta={data}>
-            <div className="w-[100%] md:w-[70%]  ">
-                <div className="w-[100%] p-5 bg-secondaryBackground">
+            <div className="w-[100%] md:w-[70%] ">
+                <div className="w-[100%] p-5 bg-primaryBackground">
                     <h1 className="header text-3xl font-bold">{article.title}</h1>
                     <div className="flex gap-4 align-middle h-14">
                         <span className="flex items-center font-semibold">{article.category.name}</span>
@@ -170,11 +170,11 @@ function Post({ article, comments }) {
                     </div>
                 </div>
 
-                <div className="border-t-2 p-5 bg-secondaryBackground border-[rgba(240,142,128,.1)] flex">
+                <div className="border-t-2 p-5 bg-primaryBackground border-[rgba(240,142,128,.1)] flex">
                     <div><span>tags: {article.tags != "unknown" && article.tags}</span></div>
                 </div>
 
-                <div className="border-t-2 p-2 px-5 py-0  gap-3 bg-secondaryBackground flex align-middle items-center border-[rgba(240,142,128,.1)]">
+                <div className="border-t-2 p-2 px-5 py-0  gap-3 bg-primaryBackground flex align-middle items-center border-[rgba(240,142,128,.1)]">
 
 
 
@@ -226,7 +226,7 @@ function Post({ article, comments }) {
 
                 </div>
 
-                <div className="border-t-2 mt-3 p-5 bg-secondaryBackground ">
+                <div className="border-t-2 mt-3 p-5 bg-primaryBackground ">
                     <span className="header">YOU MAY LIKE THIS POST</span>
                     <div className="flex gap-2 flex-wrap">
                         {article.similarArticles.map((item, index) => {
@@ -265,7 +265,7 @@ function Post({ article, comments }) {
                     </div>
                 </div>
 
-                <div className="bg-secondaryBackground border-t-2 mt-3 p-5 grid">
+                <div className="bg-primaryBackground border-t-2 mt-3 p-5 grid">
                     <span className="header mb-2">ADD A COMMENT</span>
                     <span><i>{comments.length ?? 0} comments</i></span>
                     <form onSubmit={addComment} className="mt-3">

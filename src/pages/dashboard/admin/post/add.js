@@ -92,6 +92,7 @@ function AddPost({ categories }) {
   const addArticle = async (param) => {
     var url = '/api/database/article/add/'
     let res = await postData(url, param)
+    console.log("ll", res)
 
     if (res.code == 201) {
       toast.success('Post Created', {
@@ -207,11 +208,12 @@ function AddPost({ categories }) {
     let data = {
 
       authorId: session?.data?.user?.author,
+
       title: form_values.title,
       body: value,
       image: secure_url ?? '',
       summary: form_values.summary,
-      categoryId: parseInt(form_values.category),
+      categoryId: form_values.category,
       slug: slug
 
     }
@@ -234,7 +236,7 @@ function AddPost({ categories }) {
         {/* <input placeholder="Category" className="p-4 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[rgba(240,142,128,.1)]" name="title" /> */}
 
         <select name="category">
-          <option selected="selected" disabled>Select Category</option>
+          <option defaultValue disabled>Select Category</option>
           {categories.map((e, index) => {
             return (
               <option key={index} value={e.id}>{e.name}</option>
@@ -256,7 +258,7 @@ function AddPost({ categories }) {
         <label>Select Post Image</label>
         <input placeholder="Select " name="image" type={'file'} />
         <div className="flex justify-center">
-          <button className="rounded-sm bg-[#f08e80] text-white  p-2 hover:text-[white] w-36 flex justify-center">Save</button>
+          <button className="rounded-sm bg-link  p-2 hover:text-secondLink text-secondLink w-36 flex justify-center">Save</button>
         </div>
       </form>
 

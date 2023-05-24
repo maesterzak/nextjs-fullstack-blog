@@ -5,10 +5,12 @@ async function addArticle(req, res) {
     if (req.method === "POST") {
 
         const body = req.body
+        console.log("body", body)
 
         try {
 
             const article = await prisma.article.create({
+
                 data: {
                     ...body
                 }
@@ -20,7 +22,7 @@ async function addArticle(req, res) {
                 return res.status(400).json({ success: false });
             }
         } catch (err) {
-
+            console.log("kl", err)
             return res.status(500).json({ error: "Something is wrong", tt: err });
         }
     } else {

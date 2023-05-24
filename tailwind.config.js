@@ -15,9 +15,11 @@ module.exports = {
 
     },
     colors: {
-      primaryBackground: "#03031b",
-      secondaryBackground: "#16151d",
-      link: "#ffa000",
+      primaryBackground: "#ffff",
+      secondaryBackground: "#7746c7",
+      thirdBackground: "#250657",
+      link: "#250657",
+      secondLink: "#ffff",
       textLigh: "",
       categoryBackgroundColor: "rgba(240,142,128,.1)",
       categoryLinkColor: "#152035"

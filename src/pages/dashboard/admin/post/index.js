@@ -62,7 +62,7 @@ function Post({ param }) {
             <div className="w-full p-4">
                 <h1 className="header">POST</h1>
                 <div className="w-full flex justify-end">
-                    <Link href="/dashboard/admin/post/add" className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-[#f08e80] border border-gray-300 rounded-lg text-white hover:text-[#505050]">
+                    <Link href="/dashboard/admin/post/add" className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-link border border-gray-300 rounded-lg hover:text-secondLink text-white text-secondLink">
 
                         add
                     </Link>
@@ -94,10 +94,10 @@ function Post({ param }) {
                                         <Link href={'#'} className="text-[#152035] text-[14px] header">{item.title}</Link>
                                         <div className=" flex gap-3">
                                             <span className="text-[13px]">12, may 2018</span>
-                                            <button href="#" className="inline-flex items-center px-1  mr-3 text-sm font-medium  bg-[#f08e80] border border-gray-300 rounded-lg text-white hover:text-[#505050]">
+                                            <button href="#" className="inline-flex items-center px-4  mr-3 text-sm font-medium  bg-link border border-gray-300 rounded-lg text-white text-secondLink">
                                                 edit
                                             </button>
-                                            <button onClick={() => deleteArticle(item.id)} href="#" className="inline-flex items-center px-1  mr-3 text-sm font-medium  bg-[#f08e80] border border-gray-300 rounded-lg text-white hover:text-[#505050]">
+                                            <button onClick={() => deleteArticle(item.id)} href="#" className="inline-flex items-center px-4  mr-3 text-sm font-medium  bg-link border border-gray-300 rounded-lg text-white text-secondLink">
                                                 delete
                                             </button>
                                         </div>

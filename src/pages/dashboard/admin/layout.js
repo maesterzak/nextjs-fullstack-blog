@@ -93,73 +93,73 @@ function AdminLayout({ children }) {
       </div>
       <div className="w-full  flex-wrap md:flex">
 
-        <animated.div style={{ ...springs }} className="w-[50%] md:w-[20%]  border-r-4 fixed md:static z-10  md:z-0 bg-[#FFF6EF]  border-[rgba(240,142,128,.1)] h-[80vh] flex flex-col text-[white] items-center gap-3 md:hidden">
+        <animated.div style={{ ...springs }} className="w-[50%] md:w-[20%]  border-r-4 fixed md:static z-10  md:z-0 bg-primaryBackground  border-link h-[80vh] flex flex-col text-[white] items-center gap-3 md:hidden">
           <div className="md:hidden flex w-full justify-end">
             <button onClick={() => toggleSideBar('close')} className="text-black p-2 font-extrabold">X</button>
           </div>
           <Link
             href={"/dashboard/admin"}
-            className="rounded-sm bg-[#f08e80] hover:text-[white] w-36 p-2 flex justify-center"
+            className="rounded-sm bg-link text-secondLink hover:text-[white] w-36 p-2 flex justify-center"
           >
             Dashboard
           </Link>
           <Link
             href={"/dashboard/admin/post"}
-            className="rounded-sm bg-[#f08e80] p-2 hover:text-[white] w-36 flex justify-center"
+            className="rounded-sm bg-link p-2 text-secondLink hover:text-[white] w-36 flex justify-center"
           >
             Posts
           </Link>
           <Link
             href={"/dashboard/admin/category"}
-            className="rounded-sm bg-[#f08e80]   p-2 hover:text-[white] w-36 flex justify-center"
+            className="rounded-sm bg-link text-secondLink   p-2 hover:text-[white] w-36 flex justify-center"
           >
             Categories
           </Link>
           <Link
             href={"/dashboard/admin/post"}
-            className="rounded-sm bg-[#f08e80]   p-2 hover:text-[white] w-36 flex justify-center"
+            className="rounded-sm bg-link   p-2 text-secondLink hover:text-[white] w-36 flex justify-center"
           >
             Comments
           </Link>
           <Link
             href={"/dashboard/admin/post"}
-            className="rounded-sm bg-[#f08e80]   p-2 hover:text-[white] w-36 flex justify-center"
+            className="rounded-sm bg-link   p-2 text-secondLink hover:text-[white] w-36 flex justify-center"
           >
             Profile
           </Link>
         </animated.div>
 
-        <div className="w-[50%] md:w-[20%]  border-r-4 fixed md:static  bg-[#FFF6EF]  border-[rgba(240,142,128,.1)] h-[80vh]  flex-col text-[white] items-center gap-3 hidden md:flex">
+        <div className="w-[50%] md:w-[20%]  border-r-4 fixed md:static  bg-primaryBackground  border-link h-[80vh]  flex-col text-[white] items-center gap-3 hidden md:flex">
           <div className="md:hidden flex w-full justify-end">
             <button onClick={() => toggleSideBar('close')} className="text-black p-2 font-extrabold">X</button>
           </div>
           <Link
             href={"/dashboard/admin"}
-            className="rounded-sm bg-[#f08e80] hover:text-[white] w-36 p-2 flex justify-center"
+            className="rounded-sm bg-link text-secondLink hover:text-[white] w-36 p-2 flex justify-center"
           >
             Dashboard
           </Link>
           <Link
             href={"/dashboard/admin/post"}
-            className="rounded-sm bg-[#f08e80] p-2 hover:text-[white] w-36 flex justify-center"
+            className="rounded-sm bg-link p-2 text-secondLink hover:text-[white] w-36 flex justify-center"
           >
             Posts
           </Link>
           <Link
             href={"/dashboard/admin/category"}
-            className="rounded-sm bg-[#f08e80]   p-2 hover:text-[white] w-36 flex justify-center"
+            className="rounded-sm bg-link text-secondLink   p-2 hover:text-[white] w-36 flex justify-center"
           >
             Categories
           </Link>
           <Link
             href={"/dashboard/admin/post"}
-            className="rounded-sm bg-[#f08e80]   p-2 hover:text-[white] w-36 flex justify-center"
+            className="rounded-sm bg-link text-secondLink   p-2 hover:text-[white] w-36 flex justify-center"
           >
             Comments
           </Link>
           <Link
             href={"/dashboard/admin/post"}
-            className="rounded-sm bg-[#f08e80]   p-2 hover:text-[white] w-36 flex justify-center"
+            className="rounded-sm bg-link text-secondLink   p-2 hover:text-[white] w-36 flex justify-center"
           >
             Profile
           </Link>
