@@ -42,7 +42,8 @@ export async function getStaticPaths() {
     });
     return {
         paths,
-        fallback: false, // can also be true or 'blocking'
+        fallback: 'blocking', // can also be true or 'blocking'
+
     };
 }
 
@@ -57,7 +58,8 @@ export const getStaticProps = async (context) => {
 
 
     return {
-        props: { article: res.data ?? null, comments: comments.data ?? null }
+        props: { article: res.data ?? null, comments: comments.data ?? null },
+        revalidate: 10, // In seconds
     }
 }
 

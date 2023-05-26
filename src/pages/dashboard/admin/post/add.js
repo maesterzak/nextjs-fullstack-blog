@@ -40,7 +40,8 @@ export const getStaticProps = async () => {
     return undefined
   }
   return {
-    props: { categories: data }
+    props: { categories: data },
+    revalidate: 10, // In seconds
   }
 }
 

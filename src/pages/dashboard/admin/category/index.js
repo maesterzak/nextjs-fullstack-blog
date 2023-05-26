@@ -20,7 +20,8 @@ export const getStaticProps = async () => {
         return undefined
     }
     return {
-        props: { param: data }
+        props: { param: data },
+        revalidate: 10, // In seconds
     }
 }
 
@@ -114,7 +115,7 @@ function Categories({ param }) {
 
                 <form className="flex gap-5" onSubmit={submitHandler}>
                     <input className="w-[30%] p-2 rounded-md " placeholder="Enter category name" name="name" />
-                    <button type={"submit"} className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-[#f08e80] border border-gray-300 rounded-lg text-white hover:text-[#505050]">
+                    <button type={"submit"} className="inline-flex items-center px-4 py-2 mr-3 text-secondLink text-sm font-medium  bg-secondaryBackground border border-gray-300 rounded-lg text-white hover:text-[#505050]">
 
                         add
                     </button>
@@ -135,10 +136,10 @@ function Categories({ param }) {
                                         <span href={'#'} className="text-[#152035] text-[14px] text-lg header">{item.name}</span>
                                         <div className=" flex gap-3">
 
-                                            <button href="#" className="inline-flex items-center px-1  mr-3 text-sm font-medium  bg-[#f08e80] border border-gray-300 rounded-lg text-white hover:text-[#505050]">
+                                            <button href="#" className="inline-flex items-center p-2  mr-3 text-sm font-medium text-secondLink  bg-secondaryBackground border border-gray-300 rounded-lg text-white hover:text-[#505050]">
                                                 edit
                                             </button>
-                                            <button onClick={() => deleteCat(item.id)} href="#" className="inline-flex items-center px-1  mr-3 text-sm font-medium  bg-[#f08e80] border border-gray-300 rounded-lg text-white hover:text-[#505050]">
+                                            <button onClick={() => deleteCat(item.id)} href="#" className="inline-flex items-center p-2  mr-3 text-sm font-medium text-secondLink  bg-secondaryBackground border border-gray-300 rounded-lg text-white hover:text-[#505050]">
                                                 delete
                                             </button>
                                         </div>

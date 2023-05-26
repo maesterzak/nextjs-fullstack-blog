@@ -36,7 +36,8 @@ export const getStaticProps = async (context) => {
 
 
     return {
-        props: { articles: res.data ?? null, categoryName: categoryName }
+        props: { articles: res.data ?? null, categoryName: categoryName },
+        revalidate: 10, // In seconds
     }
 }
 

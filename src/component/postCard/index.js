@@ -67,6 +67,7 @@ export default function PostCard(params) {
                 {TruncateText(200, data.body)}...
 
 
+
                 {/* start */}
 
                 {/* <div className=" w-full animate-pulse flex-row items-center justify-center space-x-1 rounded-xl border p-6 ">
@@ -80,6 +81,9 @@ export default function PostCard(params) {
 
                 {/* end */}
             </div>
+            <Link href={'/' + data.slug}>
+                Readmore
+            </Link>
         </div>
 
     )
