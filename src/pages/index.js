@@ -8,10 +8,10 @@ import Navbar from '../component/Navbar'
 import styles from '../styles/Home.module.css'
 import { loadArticles } from 'lib/server/loadArticles'
 import { useState } from 'react'
-import MainLayout from '../component/Layout/MainLayout'
+import MainLayout from '../component/Layout/MainLayout.jsx'
 import Link from 'next/link'
 import { TruncateText } from '@/component/Reuseable/TruncateText'
-
+import PostCardLoader from '@/component/BlogComponents/LoadingScreens/PostCardLoader/index.jsx'
 
 export const getStaticProps = async () => {
   let res = await loadArticles()
@@ -23,13 +23,11 @@ export const getStaticProps = async () => {
 
 
   }
-  else {
-    return undefined
-  }
+
 
 
   return {
-    props: { articles: data },
+    props: { articles: data ?? null },
     revalidate: 10, // In seconds
   }
 }
@@ -56,26 +54,73 @@ export default function Home({ articles }) {
 
             <div className=' gap-3 flex flex-wrap justify-between'>
 
-              {articlesList.map((item, index) => {
-                return (
-                  <React.Fragment key={index}>
-                    <PostCard data={item} />
-                  </React.Fragment>
-                )
-              })}
+              {articlesList?.length > 0 ?
+                <>
+
+                  {articlesList?.map((item, index) => {
+                    return (
+                      <React.Fragment key={index}>
+
+                        <PostCard data={item} />
+                      </React.Fragment>
+                    )
+                  })}
+                </>
+
+                :
+                <>
+                  <PostCardLoader />
+
+                </>
+              }
 
 
 
 
 
             </div>
-            <div className='flex justify-center gap-3 md:mt-4 mb-4'>
-              {/* <Link href="#" className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-secondaryBackground border border-gray-300 rounded-lg text-white hover:text-[#505050]">
-                <svg aria-hidden="true" className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
-                Previous
-              </Link> */}
-              <button className='w-full flex justify-center items-center bg-link h-10 rounded-3xl text-secondLink'>Load More</button>
 
+            <div aria-label="Page navigation example" className={`flex justify-center`}>
+              <ul class="list-style-none flex">
+                <li>
+                  <a
+                    class="pointer-events-none relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-500 transition-all duration-300 dark:text-neutral-400"
+                  >Previous</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100  dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                    href="#!"
+                  >1</a
+                  >
+                </li>
+                <li aria-current="page">
+                  <a
+                    class="relative block rounded bg-primary-100 px-3 py-1.5 text-sm font-medium text-primary-700 transition-all duration-300"
+                    href="#!"
+                  >2
+                    <span
+                      class="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]"
+                    >(current)</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                    href="#!"
+                  >3</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                    href="#!"
+                  >Next</a
+                  >
+                </li>
+              </ul>
             </div>
 
           </div>

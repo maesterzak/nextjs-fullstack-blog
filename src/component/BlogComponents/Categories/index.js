@@ -10,7 +10,7 @@ export default function CategoriesComponent() {
         let url = '/api/database/category/get-all/'
         let res = await getHandler(url)
 
-        setCategoriesList(res.data.data)
+        setCategoriesList(res?.data?.data)
     }
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function CategoriesComponent() {
             <div className="flex gap-1 flex-wrap p-5">
                 {!categoriesList ? <>
 
-                    <div className="flex items-center justify-center">
+                    <div className="flex w-full items-center justify-center">
                         <span>Loading</span>
                     </div>
 

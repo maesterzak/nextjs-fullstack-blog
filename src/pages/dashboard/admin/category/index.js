@@ -1,4 +1,4 @@
-import AdminLayout from "../layout";
+import AdminLayout from "../../../../component/Layout/AdminLayout.jsx";
 import Link from "next/link";
 import Image from "next/image";
 import postData from "@/component/formHandlers/postHandler";
@@ -7,6 +7,8 @@ import getHandler from "@/component/formHandlers/getHandler";
 import { loadCategories } from "lib/server/loadCategories";
 import { useState } from "react";
 import deleteData from "@/component/formHandlers/deleteHandler";
+import ButtonOne from "@/component/Reuseable/Buttons/ButtonOne/index.jsx";
+import ButtonTwo from "@/component/Reuseable/Buttons/ButtonTwo/index.jsx";
 
 
 
@@ -69,12 +71,17 @@ function Categories({ param }) {
         const form_values = Object.fromEntries(formData);
         console.log('form values', form_values)
 
+        form_values.name = form_values.name.charAt(0).toUpperCase() + form_values.name.slice(1)
+
+
+
 
         addCategory(form_values)
+        e.target.reset()
 
 
     }
-    console.log("pp", categories)
+
 
     const deleteCat = async (param) => {
         let url = `/api/database/category/delete/${param}`
@@ -93,6 +100,7 @@ function Categories({ param }) {
             setCategories(res.data)
         }
         else {
+            console.log("jj", res)
             toast.error('Something went wrong', {
                 position: "top-right",
                 autoClose: 5000,
@@ -114,11 +122,9 @@ function Categories({ param }) {
 
 
                 <form className="flex gap-5" onSubmit={submitHandler}>
-                    <input className="w-[30%] p-2 rounded-md " placeholder="Enter category name" name="name" />
-                    <button type={"submit"} className="inline-flex items-center px-4 py-2 mr-3 text-secondLink text-sm font-medium  bg-secondaryBackground border border-gray-300 rounded-lg text-white hover:text-[#505050]">
+                    <input required className="w-[30%] p-2 rounded-md " placeholder="Enter category name" name="name" />
 
-                        add
-                    </button>
+                    <ButtonOne type={'submit'} text={'Add'} />
                 </form>
 
 
@@ -136,12 +142,12 @@ function Categories({ param }) {
                                         <span href={'#'} className="text-[#152035] text-[14px] text-lg header">{item.name}</span>
                                         <div className=" flex gap-3">
 
-                                            <button href="#" className="inline-flex items-center p-2  mr-3 text-sm font-medium text-secondLink  bg-secondaryBackground border border-gray-300 rounded-lg text-white hover:text-[#505050]">
+                                            <button className="inline-flex items-center p-2  mr-3 text-sm font-medium text-secondLink  bg-secondaryBackground border border-gray-300 rounded-lg text-white ">
                                                 edit
                                             </button>
-                                            <button onClick={() => deleteCat(item.id)} href="#" className="inline-flex items-center p-2  mr-3 text-sm font-medium text-secondLink  bg-secondaryBackground border border-gray-300 rounded-lg text-white hover:text-[#505050]">
-                                                delete
-                                            </button>
+                                            <ButtonTwo type={'button'} text={'Delete'} onClickHandler={() => deleteCat(item.id)} />
+
+
                                         </div>
 
                                     </div>

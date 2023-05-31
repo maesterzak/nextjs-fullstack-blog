@@ -1,16 +1,16 @@
-import AdminLayout from "./layout";
+import AdminLayout from "@/component/Layout/AdminLayout";
 
 
-function Admin(){
+function Admin() {
 
-    return(
+    return (
         <AdminLayout>
             <div className="w-full">
                 <h1>Dashboard</h1>
 
             </div>
 
-        </AdminLayout>    
+        </AdminLayout>
     )
 }
 export default Admin;

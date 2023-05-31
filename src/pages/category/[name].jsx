@@ -1,4 +1,4 @@
-import MainLayout from "@/component/Layout/MainLayout";
+import MainLayout from "@/component/Layout/MainLayout.jsx";
 import { loadCategories } from "lib/server/loadCategories";
 import { loadCategoryArticles } from "lib/server/loadCategoryArticles";
 import PostCard from "@/component/postCard";
@@ -36,7 +36,7 @@ export const getStaticProps = async (context) => {
 
 
     return {
-        props: { articles: res.data ?? null, categoryName: categoryName },
+        props: { articles: res.data ?? null, categoryName: categoryName ?? null },
         revalidate: 10, // In seconds
     }
 }

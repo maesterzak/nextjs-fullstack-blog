@@ -7,8 +7,10 @@ import getHandler from "@/component/formHandlers/getHandler"
 import { useEffect } from "react"
 import CategoriesComponent from "../BlogComponents/Categories"
 import MostViewed from "../BlogComponents/MostViewed"
-
-
+import SingleAds from "../Ads/SingleAds"
+import VerticalAds from "../Ads/VerticalLongAds"
+import { SWRConfig } from "swr"
+import axios from "axios"
 
 
 
@@ -19,7 +21,7 @@ export default function MainLayout({ children, param, meta }) {
 
 
     return (
-        <>
+        <SWRConfig value={{ fetcher: (url) => axios(url).then(r => r.data) }}>
             <Head>
                 <title>{meta?.title}</title>
                 <meta name="description" content={meta?.description} />
@@ -33,11 +35,26 @@ export default function MainLayout({ children, param, meta }) {
 
                 <div className="w-[100%] md:w-[25%] ">
 
+                    <div>
+
+                    </div>
+
+                    <div className="mb-5 flex justify-between">
+                        <SingleAds />
+                        <SingleAds />
+
+                    </div>
+
 
                     {/* most viewed */}
                     <MostViewed />
 
                     {/* most viewed */}
+                    <div className="mt-5 flex justify-between">
+                        <SingleAds />
+                        <SingleAds />
+
+                    </div>
                     {/* category */}
 
 
@@ -45,6 +62,10 @@ export default function MainLayout({ children, param, meta }) {
                     <CategoriesComponent />
 
                     {/* category */}
+                    <div className="mt-5 flex ">
+                        <VerticalAds />
+
+                    </div>
 
 
 
@@ -53,7 +74,7 @@ export default function MainLayout({ children, param, meta }) {
 
 
             </div>
-        </>
+        </SWRConfig>
     )
 
 

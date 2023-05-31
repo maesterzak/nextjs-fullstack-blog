@@ -12,7 +12,7 @@ export default function MostViewed() {
         let url = '/api/database/article/most-viewed/'
         let res = await getHandler(url)
         console.log("test", res)
-        setMostViewedList(res.data.data)
+        setMostViewedList(res?.data?.data)
     }
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export default function MostViewed() {
                         {mostViewedList.map((item, index) => {
                             return (
                                 <div key={index} className="flex w-full p-4">
-                                    <div className="w-[25%] h-16 ">
+                                    <div className="w-[25%] h-[auto] ">
                                         <Image
                                             alt=""
                                             src={item.image ?? '/img/1.jpg'}

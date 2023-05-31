@@ -1,7 +1,7 @@
 // import '../styles/globals.css'
 
 import '@/styles/globals.css'
-import Layout from '../component/Layout/GlobalLayout'
+import Layout from '../component/Layout/GlobalLayout.jsx'
 import Navbar from '../component/Navbar'
 import { Raleway, IBM_Plex_Sans, Dancing_Script, Roboto_Slab, Work_Sans } from '@next/font/google';
 import { SessionProvider } from 'next-auth/react';

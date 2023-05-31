@@ -22,7 +22,8 @@ module.exports = {
       secondLink: "#ffff",
       textLigh: "",
       categoryBackgroundColor: "rgba(240,142,128,.1)",
-      categoryLinkColor: "#152035"
+      categoryLinkColor: "#152035",
+      loadingSkeleton: "#d3d3d3"
 
 
 

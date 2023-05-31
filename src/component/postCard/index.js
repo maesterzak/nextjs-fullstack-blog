@@ -11,19 +11,20 @@ export default function PostCard(params) {
 
     return (
 
-        <div className="w-[100%] md:w-[48%] mb-10 hover:shadow-2xl  p-2">
-            <div className="h-50 md:h-[300px] w-full bg-black overflow-hidden relative">
+        <div className=" w-[100%] md:w-[48%] h-[auto] mb-10 hover:shadow-2xl  p-2">
+            <div className="   w-full overflow-hidden relative">
                 <Image
                     alt=""
                     src={data.image ?? '/img/1.jpg'}
                     width={700}
                     height={700}
                     sizes={"100vw"}
+
                     style={{
                         width: '100%',
                         height: 'auto'
                     }}
-                    className="hover:scale-125"
+                    className="hover:scale-125 "
                 />
                 {/* className="absolute top-0 w-full h-full bg-[#15203554] hover:bg-[transparent] transition ease-in-out delay-150 hover:scale-125 duration-300 " */}
                 <div className="absolute top-0 w-full h-full hover:bg-[transparent] transition ease-in-out delay-150 hover:scale-125 duration-300 ">

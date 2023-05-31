@@ -1,4 +1,4 @@
-import AdminLayout from "../layout";
+import AdminLayout from "@/component/Layout/AdminLayout";
 // import MDEditor from '@uiw/react-md-editor';
 import { useState } from "react";
 // import rehypeSanitize from "rehype-sanitize";
@@ -232,12 +232,12 @@ function AddPost({ categories }) {
 
       <form onSubmit={submitHandler} className="p-5 grid gap-4 overflow-y-auto">
         <h1 className="header">ADD POST</h1>
-
-        <input placeholder="Enter title" className="p-4 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[rgba(240,142,128,.1)]" name="title" />
+        <label>Title *</label>
+        <input required placeholder="Enter title" className="p-4 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[rgba(240,142,128,.1)]" name="title" />
         {/* <input placeholder="Category" className="p-4 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[rgba(240,142,128,.1)]" name="title" /> */}
-
-        <select name="category">
-          <option defaultValue disabled>Select Category</option>
+        <label>Category *</label>
+        <select className="border-2 h-8 border-link" required name="category">
+          <option selected disabled>Select Category</option>
           {categories.map((e, index) => {
             return (
               <option key={index} value={e.id}>{e.name}</option>
@@ -250,14 +250,14 @@ function AddPost({ categories }) {
           e.name
         })} */}
         <div className="h-[65vh]">
-          <label>Body</label>
+          <label>Body *</label>
           <QuillNoSSRWrapper forwardedRef={quillRef} className="h-[60vh] mb-10" value={value} onChange={setValue} modules={modules2} formats={formats} theme="snow" />
         </div>
-        <label className="mt-10">Summary</label>
-        <textarea name="summary" className="p-4 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[rgba(240,142,128,.1)]" placeholder="Enter Summary"></textarea>
+        <label className="mt-10">Summary *</label>
+        <textarea maxLength={150} required name="summary" className="p-4 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[rgba(240,142,128,.1)]" placeholder="Enter Summary"></textarea>
         {/* <QuillNoSSRWrapper className="h-[60vh] mb-10"  theme="snow" /> */}
         <label>Select Post Image</label>
-        <input placeholder="Select " name="image" type={'file'} />
+        <input placeholder="Select" name="image" type={'file'} />
         <div className="flex justify-center">
           <button className="rounded-sm bg-link  p-2 hover:text-secondLink text-secondLink w-36 flex justify-center">Save</button>
         </div>

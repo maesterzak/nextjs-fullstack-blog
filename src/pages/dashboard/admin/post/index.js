@@ -1,10 +1,11 @@
-import AdminLayout from "../layout";
+import AdminLayout from "@/component/Layout/AdminLayout";
 import Link from "next/link";
 import Image from "next/image";
 import { loadArticles } from "lib/server/loadArticles";
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import deleteData from "@/component/formHandlers/deleteHandler";
+import ButtonTwo from "@/component/Reuseable/Buttons/ButtonTwo";
 
 const data = [1, 2, 3, 4]
 
@@ -63,19 +64,27 @@ function Post({ param }) {
             <div className="w-full p-4">
                 <h1 className="header">POST</h1>
                 <div className="w-full flex justify-end">
-                    <Link href="/dashboard/admin/post/add" className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-link border border-gray-300 rounded-lg hover:text-secondLink text-white text-secondLink">
+                    <Link href="/dashboard/admin/post/add" className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-secondaryBackground border border-gray-300 rounded-lg hover:text-secondLink text-white text-secondLink">
 
-                        add
+                        Add
                     </Link>
 
                 </div>
 
                 <div className="w-full flex-col">
+
+                    {articles.length == 0 &&
+                        <div className="w-full h-[200px] flex justify-center items-center">
+                            <h1>No posts available. Click the &apos;Add&apos; button to create a new post.</h1>
+
+
+                        </div>
+                    }
                     <div>
                         {articles?.map((item, index) => {
                             return (
                                 <div className="flex w-full p-4" key={index}>
-                                    <div className="w-[25%] md:w-[10%] h-16 ">
+                                    <div className="w-[25%] md:w-[10%] h-[auto] ">
                                         <Image
                                             alt=""
                                             src={item.image}
@@ -91,16 +100,16 @@ function Post({ param }) {
                                         />
 
                                     </div>
-                                    <div className="w-[75%] px-3 grid">
+                                    <div className="w-full px-3 grid">
                                         <Link href={'#'} className="text-[#152035] text-[14px] header">{item.title}</Link>
-                                        <div className=" flex gap-3">
+                                        <div className=" flex gap-3 w-full ">
                                             <span className="text-[13px]">12, may 2018</span>
-                                            <button href="#" className="inline-flex items-center px-4  mr-3 text-sm font-medium  bg-link border border-gray-300 rounded-lg text-white text-secondLink">
-                                                edit
-                                            </button>
-                                            <button onClick={() => deleteArticle(item.id)} href="#" className="inline-flex items-center px-4  mr-3 text-sm font-medium  bg-link border border-gray-300 rounded-lg text-white text-secondLink">
-                                                delete
-                                            </button>
+                                            <div className="flex gap-2 h-10">
+                                                <button className="inline-flex items-center p-2  mr-3 text-sm font-medium text-secondLink  bg-secondaryBackground border border-gray-300 rounded-lg text-white ">
+                                                    edit
+                                                </button>
+                                                <ButtonTwo type={'button'} text={'Delete'} onClickHandler={() => deleteArticle(item.id)} />
+                                            </div>
                                         </div>
 
                                     </div>
