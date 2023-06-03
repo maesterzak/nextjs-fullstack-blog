@@ -28,7 +28,7 @@ export default function MainLayout({ children, param, meta }) {
                 <link rel="icon" href="/favicon.ico" />
 
             </Head>
-            <div className="w-full flex mt-5 flex-wrap px-2  justify-center gap-2">
+            <div className="w-full flex mt-5 flex-wrap px-2  justify-center gap-4">
 
                 {children}
 
@@ -39,33 +39,33 @@ export default function MainLayout({ children, param, meta }) {
 
                     </div>
 
-                    <div className="mb-5 flex justify-between">
+                    {/* <div className="mb-5 flex justify-between">
                         <SingleAds />
                         <SingleAds />
 
-                    </div>
+                    </div> */}
 
 
                     {/* most viewed */}
-                    <MostViewed />
+                    {/* <MostViewed /> */}
 
                     {/* most viewed */}
-                    <div className="mt-5 flex justify-between">
+                    {/* <div className="mt-5 flex justify-between">
                         <SingleAds />
                         <SingleAds />
 
-                    </div>
+                    </div> */}
                     {/* category */}
 
 
 
-                    <CategoriesComponent />
+                    {/* <CategoriesComponent /> */}
 
                     {/* category */}
-                    <div className="mt-5 flex ">
+                    {/* <div className="mt-5 flex ">
                         <VerticalAds />
 
-                    </div>
+                    </div> */}
 
 
 

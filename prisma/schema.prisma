@@ -70,7 +70,7 @@ model Author {
   email   String    @default("unknown")
   image   String
   bio     String
-  user    User      @relation(fields: [userId], references: [id])
+  user    User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId  String
   article Article[]
 }

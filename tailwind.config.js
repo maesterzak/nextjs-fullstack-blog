@@ -23,7 +23,13 @@ module.exports = {
       textLigh: "",
       categoryBackgroundColor: "rgba(240,142,128,.1)",
       categoryLinkColor: "#152035",
-      loadingSkeleton: "#d3d3d3"
+      loadingSkeleton: "#d3d3d3",
+
+      primaryColor: "#45485F",
+      linkColor1: "#22242f",
+      linkColor2: "#1818DC",
+      buttonText: "#ffff"
+
 
 
 

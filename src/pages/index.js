@@ -3,7 +3,7 @@ import PostCard from '@/component/postCard'
 import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
-import Hero from '../component/Hero'
+import Hero from '../component/BlogComponents/Hero'
 import Navbar from '../component/Navbar'
 import styles from '../styles/Home.module.css'
 import { loadArticles } from 'lib/server/loadArticles'
@@ -12,6 +12,8 @@ import MainLayout from '../component/Layout/MainLayout.jsx'
 import Link from 'next/link'
 import { TruncateText } from '@/component/Reuseable/TruncateText'
 import PostCardLoader from '@/component/BlogComponents/LoadingScreens/PostCardLoader/index.jsx'
+import SectionOne from '@/component/BlogComponents/SectionOne'
+import SectionTwo from '@/component/BlogComponents/SectionTwo'
 
 export const getStaticProps = async () => {
   let res = await loadArticles()
@@ -44,11 +46,18 @@ export default function Home({ articles }) {
   }
   return (
     <MainLayout meta={data} >
-      <div className='w-[100%] md:w-[70%] ' >
+      <Hero />
+      <div className='w-full'>
+        <SectionOne />
+      </div>
+      <div className='w-full'>
+        <SectionTwo />
+      </div>
+      {/* <div className='w-[100%] md:w-[70%] ' >
 
 
         <main className='flex flex-col justify-center'>
-          {/* <Hero /> */}
+
 
           <div className='px-3 md:px-14 '>
 
@@ -131,7 +140,7 @@ export default function Home({ articles }) {
         </main>
 
 
-      </div>
+      </div> */}
 
     </MainLayout>
 

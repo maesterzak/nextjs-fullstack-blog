@@ -5,7 +5,7 @@ import Navbar from "../Navbar";
 export default function Layout({ children }) {
 
     return (
-        <div className=" min-h-[100vh]">
+        <div className="lg:container lg:px-40 mx-auto min-h-[100vh]">
             <div>
                 <Navbar />
             </div>
