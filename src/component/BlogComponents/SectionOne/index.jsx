@@ -14,7 +14,7 @@ export default function SectionOne() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pt-7">
             {post.map((e, index) => {
                 return (
-                    <React.Fragment>
+                    <React.Fragment key={index}>
                         <PostCardThree category={e.category} title={e.title} />
                     </React.Fragment>
                 )
