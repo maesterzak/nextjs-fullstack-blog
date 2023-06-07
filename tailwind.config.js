@@ -28,7 +28,9 @@ module.exports = {
       primaryColor: "#45485F",
       linkColor1: "#22242f",
       linkColor2: "#1818DC",
-      buttonText: "#ffff"
+      buttonText: "#ffff",
+      grayBackground: "#FAFAFA",
+      grayBorder: "#dddddd"
 
 
 

@@ -6,32 +6,58 @@ export default function Footer() {
     return (
         <>
 
-            <footer className="p-4 border-t-4 bg-thirdBackground text-secondLink shadow md:px-6 md:py-8 ">
-                <div className="sm:flex sm:items-center sm:justify-between">
-                    <Link href="#" className="flex items-center mb-4 sm:mb-0 text-secondLink ">
-                        <div className='relative h-14 w-14'>
-                            {/* <Image src="https://flowbite.com/docs/images/logo.svg" layout='fill' className="h-8 mr-3" alt="Flowbite Logo" /> */}
-                        </div>
-                        <span className='text-6xl site-name'>Quno</span>
-                    </Link>
-                    <ul className="flex flex-wrap items-center mb-6  text-sm text-[#505050] sm:mb-0">
-                        <li>
-                            <Link href="/about-page" className="mr-4 hover:text-secondLink hover:underline text-secondLink  md:mr-6 ">About</Link>
-                        </li>
-                        <li>
-                            <Link href="/privacy-policy" className="mr-4 hover:text-secondLink hover:underline text-secondLink md:mr-6">Privacy Policy</Link>
-                        </li>
-                        <li>
-                            <Link href="#" className="mr-4 hover:text-secondLink hover:underline text-secondLink md:mr-6 ">Licensing</Link>
-                        </li>
-                        <li>
-                            <Link href="/contact-us" className="hover:underline hover:text-secondLink text-secondLink">Contact</Link>
-                        </li>
-                    </ul>
+            <footer >
+                <div className='grid grid-cols-4 gap-5'>
+                    <div className='col-span-4 md:col-span-2 lg:col-span-1 flex flex-col gap-5'>
+                        <h2 className='text-2xl font-semibold text-center md:text-start'>About</h2>
+                        <p className='flex text-center md:text-start'>
+                            Turpis erat tincidunt et viverra id nunc molestie et faucibus diam, proin lectus aliquam mattis ac nunc elementum accumsan libero.
+                        </p>
+
+                    </div>
+                    <div className='col-span-4 md:col-span-2 lg:col-span-1 flex flex-col items-center gap-5'>
+                        <h2 className='text-2xl font-semibold'>Company</h2>
+                        <ul className='text-md'>
+                            <li><Link href={"/"}>About Us</Link></li>
+                            <li><Link href={"/"}>Contact Us</Link></li>
+                            <li><Link href={"/"}>Our Team Us</Link></li>
+                            <li><Link href={"/"}>Advertise</Link></li>
+                        </ul>
+
+                    </div>
+
+                    <div className='col-span-4 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start gap-5'>
+                        <h2 className='text-2xl font-semibold'>Legal</h2>
+                        <ul className='text-md'>
+                            <li><Link href={"/"}>Privacy Policy</Link></li>
+                            <li><Link href={"/"}>Terms of Service</Link></li>
+                            <li><Link href={"/"}>Code of Conduct</Link></li>
+                            <li><Link href={"/"}>Advertise</Link></li>
+                        </ul>
+
+                    </div>
+
+                    <div className='col-span-4 md:col-span-2 lg:col-span-1 flex flex-col items-center gap-5'>
+                        <h2 className='text-2xl font-semibold'>Follow Us</h2>
+                        <ul className='text-md'>
+                            <li><Link href={"/"}>Facebook</Link></li>
+                            <li><Link href={"/"}>Twitter</Link></li>
+                            <li><Link href={"/"}>YouTubr</Link></li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div className='flex flex-col md:flex-row justify-center md:justify-between text-sm items-center mt-20 mb-10 gap-3'>
+                    <span>Copyright 2023 Info Blog</span>
+                    <span>Powered By Devmaesters</span>
+
                 </div>
 
-            </footer>
 
+
+            </footer>
         </>
     )
 }

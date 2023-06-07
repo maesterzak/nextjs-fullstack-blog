@@ -14,6 +14,8 @@ import { TruncateText } from '@/component/Reuseable/TruncateText'
 import PostCardLoader from '@/component/BlogComponents/LoadingScreens/PostCardLoader/index.jsx'
 import SectionOne from '@/component/BlogComponents/SectionOne'
 import SectionTwo from '@/component/BlogComponents/SectionTwo'
+import SectionThree from '@/component/BlogComponents/SectionThree'
+import SectionFour from '@/component/BlogComponents/SectionFour'
 
 export const getStaticProps = async () => {
   let res = await loadArticles()
@@ -47,11 +49,21 @@ export default function Home({ articles }) {
   return (
     <MainLayout meta={data} >
       <Hero />
-      <div className='w-full'>
+      <div className='w-full border-primaryColor/40 pb-12 border-b-2'>
         <SectionOne />
       </div>
       <div className='w-full'>
         <SectionTwo />
+      </div>
+      <div className='w-full border-primaryColor/40 pb-12 border-b-2'>
+        <SectionThree />
+      </div>
+
+      <div className='w-full border-primaryColor/40 pb-12 border-b-2'>
+        <SectionFour />
+      </div>
+      <div className='w-full border-primaryColor/40 pb-12 border-b-2'>
+        <SectionThree />
       </div>
       {/* <div className='w-[100%] md:w-[70%] ' >
 

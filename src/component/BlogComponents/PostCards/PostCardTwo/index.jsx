@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import placeholder from '../../../../../public/img/ads-placeholder.png'
 
 
 export default function PostCardTwo() {
@@ -7,15 +8,16 @@ export default function PostCardTwo() {
     return (
         <div className="w-full h-full">
             <div className="grid grid-cols-2 gap-2 h-full">
-                <div className="bg-blue">
+                <div className="bg-blue ">
                     <Image
-                        src={'/img/ads-placeholder.png'}
-                        width={700}
-                        height={700}
-                        style={{
-                            width: "100%",
-                            height: "100%"
-                        }}
+                        src={placeholder}
+                        className="w-full h-full "
+                    // width={700}
+                    // height={700}
+                    // style={{
+                    //     width: "100%",
+                    //     height: "100%"
+                    // }}
                     />
                 </div>
                 <div className="p-2 py-6 flex justify-center flex-col gap-2">

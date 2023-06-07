@@ -5,7 +5,7 @@ import PostCardTwo from "../PostCards/PostCardTwo";
 
 export default function Hero() {
   return (
-    <div className="container mx-auto h-4/5 border-primaryColor pb-12 border-b-2">
+    <div className="container mx-auto h-4/5 ">
       <div className=" flex flex-col md:flex-row gap-2 md:justify-between ">
         <div className="md:w-[50%] w-full">
           <PostCardOne />
