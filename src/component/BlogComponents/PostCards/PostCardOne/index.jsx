@@ -1,6 +1,6 @@
+import { images } from "@/images";
 import Image from "next/image";
 import Link from "next/link";
-
 export default function PostCardOne() {
 
 
@@ -8,7 +8,7 @@ export default function PostCardOne() {
         <div className="w-full h-full">
             <div className="w-full h-full relative">
                 <Image
-                    src={"/img/ads-placeholder.png"}
+                    src={images.placeHolder01}
                     width={700}
                     height={700}
                     style={{
@@ -20,8 +20,8 @@ export default function PostCardOne() {
                     <Link href={"/"} className="bg-primaryColor px-1 py-0.5 w-fit  text-buttonText text-xs">
                         Technology
                     </Link>
-                    <Link href={"/"} className="text-md md:text-2xl">15 Shocking Elon Musk Tweets About Stock Market</Link>
-                    <div className="flex gap-2 text-xs">
+                    <Link href={"/"} className="text-md text-buttonText md:text-2xl">15 Shocking Elon Musk Tweets About Stock Market</Link>
+                    <div className="flex gap-2 text-xs text-buttonText">
                         <span>arkbarh</span> <span>June 28, 2021</span>
                     </div>
 

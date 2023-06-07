@@ -2,13 +2,14 @@ import React from 'react'
 import Image from "next/image";
 import Link from "next/link";
 import placeholder from '../../../../../public/img/ads-placeholder.png'
+import { images } from '@/images';
 
 
 function PostCardFour({ className = "" }) {
     return (
         <div className={className}>
             <Link href={"/"} className='w-full h-auto'>
-                <Image src={placeholder} className='w-full h-full' alt='article-image' />
+                <Image src={images.placeHolder2} className='w-full h-full' alt='article-image' />
 
             </Link>
             <Link className='text-linkColor2 text-xs' href={"/"}>Stock Market</Link>

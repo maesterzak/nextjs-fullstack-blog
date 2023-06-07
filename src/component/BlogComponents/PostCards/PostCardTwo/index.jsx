@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import placeholder from '../../../../../public/img/ads-placeholder.png'
+import { images } from "@/images";
 
 
 export default function PostCardTwo() {
@@ -10,7 +11,7 @@ export default function PostCardTwo() {
             <div className="grid grid-cols-2 gap-2 h-full">
                 <div className="bg-blue ">
                     <Image
-                        src={placeholder}
+                        src={images.placeHolder}
                         className="w-full h-full "
                     // width={700}
                     // height={700}
