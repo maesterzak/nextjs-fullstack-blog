@@ -11,16 +11,16 @@ function SectionFour() {
                     <h2 className='font-bold'>Stock Market</h2> <Link className='font-semibold text-lg' href={"/"}>View All <span className='font-bold '>&rarr;</span></Link>
                 </div>
                 <div className='w-full'>
-                    <PostCardFour className=' w-full h-1/2 flex flex-col gap-2' />
+                    <PostCardFour className=' w-full flex flex-col gap-2' />
 
                 </div>
-                <div className='flex'>
-                    <div className='flex-1'>
-                        <PostCardFour className='w-full h-1/2 flex flex-col gap-2' />
+                <div className='flex gap-3 md:gap-0 flex-col md:flex-row'>
+                    <div className='md:flex-1'>
+                        <PostCardFour className='w-full  flex flex-col gap-2' />
                     </div>
 
-                    <div className='flex-1'>
-                        <PostCardFour className='w-full h-1/2 flex flex-col gap-2' />
+                    <div className='md:flex-1'>
+                        <PostCardFour className='w-full  flex flex-col gap-2' />
                     </div>
 
                 </div>
@@ -31,16 +31,16 @@ function SectionFour() {
                     <h2 className='font-bold'>Stock Market</h2> <Link className='font-semibold text-lg' href={"/"}>View All <span className='font-bold '>&rarr;</span></Link>
                 </div>
                 <div className='w-full'>
-                    <PostCardFour className=' w-full h-1/2 flex flex-col gap-2' />
+                    <PostCardFour className=' w-full flex flex-col gap-2' />
 
                 </div>
-                <div className='flex'>
-                    <div className='flex-1'>
-                        <PostCardFour className='w-full h-1/2 flex flex-col gap-2' />
+                <div className='flex gap-3 md:gap-0 flex-col md:flex-row'>
+                    <div className='md:flex-1'>
+                        <PostCardFour className='w-full  flex flex-col gap-2' />
                     </div>
 
-                    <div className='flex-1'>
-                        <PostCardFour className='w-full h-1/2 flex flex-col gap-2' />
+                    <div className='md:flex-1'>
+                        <PostCardFour className='w-full  flex flex-col gap-2' />
                     </div>
 
                 </div>

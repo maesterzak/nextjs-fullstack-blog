@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -15,7 +17,7 @@ module.exports = {
 
     },
     colors: {
-      primaryBackground: "#ffff",
+      primaryBackground: "#f7f7f8",
       secondaryBackground: "#7746c7",
       thirdBackground: "#250657",
       link: "#250657",
@@ -35,7 +37,12 @@ module.exports = {
 
 
 
-    }
+    },
+    fontFamily: {
+      mont: ['var(--font-mont)', ...fontFamily.sans],
+      mono: ['var(--font-roboto-mono)'],
+
+    },
   },
   plugins: [],
 }

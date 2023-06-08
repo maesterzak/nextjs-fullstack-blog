@@ -48,7 +48,10 @@ export default function Home({ articles }) {
   }
   return (
     <MainLayout meta={data} >
-      <Hero />
+      <div className='h-max '>
+        <Hero />
+      </div>
+
       <div className='w-full border-primaryColor/40 pb-12 border-b-2'>
         <SectionOne />
       </div>

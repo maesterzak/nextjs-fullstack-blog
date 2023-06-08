@@ -7,12 +7,13 @@ import { images } from "@/images";
 export default function PostCardTwo() {
 
     return (
-        <div className="w-full h-full">
-            <div className="grid grid-cols-2 gap-2 h-full">
+        <div className="w-full h-auto">
+            <div className="grid grid-cols-2 gap-2 h-auto">
                 <div className="bg-blue ">
                     <Image
                         src={images.placeHolder}
-                        className="w-full h-full "
+                        className="w-auto h-full object-fit"
+
                     // width={700}
                     // height={700}
                     // style={{
@@ -25,7 +26,7 @@ export default function PostCardTwo() {
                     <Link href={"/"} className="bg-primaryColor px-1 py-0.5 w-fit  text-buttonText text-xs">
                         Technology
                     </Link>
-                    <Link href={"/"} className="text-md md:tex-lg font-bold">Want a Career in Technology? Make This Your Secret Weapon</Link>
+                    <Link href={"/"} className="text-md md:text-xl font-bold ">Want a Career in Technology? Make This Your Secret Weapon</Link>
                     <span className="text-xs">June 28, 2021</span>
 
 
