@@ -22,7 +22,7 @@ export default function PostCardTwo() {
                     // }}
                     />
                 </div>
-                <div className="p-2 py-6 flex justify-center flex-col gap-2">
+                <div className="p-2 md:py-6 flex justify-center flex-col gap-2">
                     <Link href={"/"} className="bg-primaryColor px-1 py-0.5 w-fit  text-buttonText text-xs">
                         Technology
                     </Link>
