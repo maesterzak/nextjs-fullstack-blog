@@ -36,33 +36,33 @@ import PostCardFive from "@/component/BlogComponents/PostCards/PostCardFive/inde
 import CommentForm from "@/component/BlogComponents/CommentSection/CommentForm/index.jsx";
 
 // // Generates `/posts/1` and `/posts/2`
-export async function getStaticPaths() {
-    let res = await loadArticles()
+// export async function getStaticPaths() {
+//     let res = await loadArticles()
 
 
-    const paths = res.data.map((post) => {
-        return {
-            params: { slug: post.slug },
-        };
-    });
-    return {
-        paths,
-        fallback: 'blocking', // can also be true or 'blocking'
+//     const paths = res.data.map((post) => {
+//         return {
+//             params: { slug: post.slug },
+//         };
+//     });
+//     return {
+//         paths,
+//         fallback: 'blocking', // can also be true or 'blocking'
 
-    };
-}
+//     };
+// }
 
-export const getStaticProps = async (context) => {
+// export const getStaticProps = async (context) => {
 
 
-    const slug = context.params.slug;
-    let url = '/api/database/article/detail/' + slug + "/"
-    let res = await loadArticle(slug)
-    return {
-        props: { article: res?.data ?? null, url: url },
-        revalidate: 10, // In seconds
-    }
-}
+//     const slug = context.params.slug;
+//     let url = '/api/database/article/detail/' + slug + "/"
+//     let res = await loadArticle(slug)
+//     return {
+//         props: { article: res?.data ?? null, url: url },
+//         revalidate: 10, // In seconds
+//     }
+// }
 const fetcher = (url) => axios(url).then(r => r.data);
 function Post({ article, url }) {
     // const [commentsList, setCommentsList] = useState(comments)

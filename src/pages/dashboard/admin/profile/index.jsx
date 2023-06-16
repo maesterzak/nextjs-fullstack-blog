@@ -1,4 +1,4 @@
-import ButtonFour from "@/component/Reuseable/Buttons/ButtonFour";
+import ButtonFour from "@/component/Reuseable/Buttons/Button2";
 import ButtonOne from "@/component/Reuseable/Buttons/ButtonOne";
 import ButtonTwo from "@/component/Reuseable/Buttons/ButtonTwo";
 import { useSession } from "next-auth/react";

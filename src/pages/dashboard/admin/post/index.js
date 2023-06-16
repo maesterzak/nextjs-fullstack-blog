@@ -64,12 +64,55 @@ function Post({ param }) {
             <div className="w-full p-4">
                 <h1 className="header">POST</h1>
                 <div className="w-full flex justify-end">
-                    <Link href="/dashboard/admin/post/add" className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-secondaryBackground border border-gray-300 rounded-lg hover:text-secondLink text-white text-secondLink">
+                    <Link href="/dashboard/admin/post/add" className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-linkColor2 border border-gray-300 rounded-lg hover:text-secondLink text-white text-secondLink">
 
-                        Add
+                        Add Post
                     </Link>
 
                 </div>
+
+
+                <div className="w-full flex-col">
+                    {/* ta */}
+                    <div className="overflow-x-auto">
+                        <table className="table">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Published</th>
+                                    <th>Date Created</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* row 1 */}
+                                {articles?.map((e, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <th>{index}</th>
+                                            <td>{e.title}</td>
+                                            <td>{e.author.name}</td>
+                                            <td>{e.createdAt}</td>
+
+                                        </tr>
+                                    )
+                                })}
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* end */}
+
+
+
+
+                </div>
+
 
                 <div className="w-full flex-col">
 

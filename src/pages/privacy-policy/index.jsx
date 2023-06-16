@@ -1,5 +1,5 @@
 import MainLayout from "@/component/Layout/MainLayout";
-import ButtonFour from "@/component/Reuseable/Buttons/ButtonFour";
+import ButtonFour from "@/component/Reuseable/Buttons/Button2";
 
 
 export default function PrivacyPolicyPage() {

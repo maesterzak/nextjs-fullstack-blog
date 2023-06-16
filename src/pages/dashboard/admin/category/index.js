@@ -9,6 +9,8 @@ import { useState } from "react";
 import deleteData from "@/component/formHandlers/deleteHandler";
 import ButtonOne from "@/component/Reuseable/Buttons/ButtonOne/index.jsx";
 import ButtonTwo from "@/component/Reuseable/Buttons/ButtonTwo/index.jsx";
+import Button1 from "@/component/Reuseable/Buttons/Button1/index.jsx";
+import Button2 from "@/component/Reuseable/Buttons/Button2/index.jsx";
 
 
 
@@ -117,14 +119,14 @@ function Categories({ param }) {
 
     return (
         <AdminLayout>
-            <div className="w-full px-6  relative">
+            <div className="w-full px-6 flex flex-col gap-10 relative">
                 <h1 className="header">Categories</h1>
 
 
-                <form className="flex gap-5" onSubmit={submitHandler}>
+                <form className="flex gap-5 justify-end" onSubmit={submitHandler}>
                     <input required className="w-[30%] p-2 rounded-md " placeholder="Enter category name" name="name" />
 
-                    <ButtonOne type={'submit'} text={'Add'} />
+                    <Button1 classList={"bg-linkColor2 px-10 text-buttonText rounded md"} type={'submit'} text={'Add'} />
                 </form>
 
 
@@ -133,32 +135,39 @@ function Categories({ param }) {
 
 
                 <div className="w-full flex-col">
-                    <div>
-                        {categories?.map((item, index) => {
-                            return (
-                                <div className="flex w-full p-4" key={index}>
+                    {/* ta */}
+                    <div className="overflow-x-auto">
+                        <table className="table">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* row 1 */}
+                                {categories?.map((e, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <th>{index}</th>
+                                            <td>{e.name}</td>
+                                            <td><Button2 type={'button'} classList="bg-linkColor2 text-buttonText p-4" text={'Edit'} /></td>
+                                            <td><Button2 type={'button'} classList="bg-[red] text-buttonText p-4" text={'Delete'} onClickHandler={() => deleteCat(e.id)} /></td>
+                                        </tr>
+                                    )
+                                })}
 
-                                    <div className="w-[75%] px-3 grid">
-                                        <span href={'#'} className="text-[#152035] text-[14px] text-lg header">{item.name}</span>
-                                        <div className=" flex gap-3">
-
-                                            <button className="inline-flex items-center p-2  mr-3 text-sm font-medium text-secondLink  bg-secondaryBackground border border-gray-300 rounded-lg text-white ">
-                                                edit
-                                            </button>
-                                            <ButtonTwo type={'button'} text={'Delete'} onClickHandler={() => deleteCat(item.id)} />
 
 
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            )
-                        })}
+                            </tbody>
+                        </table>
                     </div>
+
+                    {/* end */}
+
 
 
 

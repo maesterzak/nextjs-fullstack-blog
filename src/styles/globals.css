@@ -36,6 +36,9 @@ input{
 textarea{
   @apply outline-none border-2 border-grayBorder bg-primaryBackground p-3 focus:border-none
 }
+.ck-editor__editable_inline {
+  min-height: 400px;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: light;

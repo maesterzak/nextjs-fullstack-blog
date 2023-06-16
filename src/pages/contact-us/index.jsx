@@ -1,6 +1,6 @@
 import MainLayout from "@/component/Layout/MainLayout";
 import Button1 from "@/component/Reuseable/Buttons/Button1";
-import ButtonFour from "@/component/Reuseable/Buttons/ButtonFour";
+import ButtonFour from "@/component/Reuseable/Buttons/Button2";
 import ButtonOne from "@/component/Reuseable/Buttons/ButtonOne";
 import ButtonTwo from "@/component/Reuseable/Buttons/ButtonTwo";
 import { images } from "@/images";

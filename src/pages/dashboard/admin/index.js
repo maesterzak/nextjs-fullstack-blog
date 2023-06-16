@@ -7,6 +7,7 @@ function Admin() {
         <AdminLayout>
             <div className="w-full">
                 <h1>Dashboard</h1>
+                <button className="btn btn-primary">Hell</button>
 
             </div>
 

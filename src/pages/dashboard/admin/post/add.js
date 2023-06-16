@@ -10,7 +10,8 @@ import { useSession } from "next-auth/react";
 import { loadCategories } from "lib/server/loadCategories";
 import { useRouter } from "next/router";
 import { useRef, useMemo } from "react";
-
+import CKeditor from "@/component/CKeditor";
+import { useEffect } from "react";
 
 
 
@@ -53,6 +54,11 @@ function AddPost({ categories }) {
   const [value, setValue] = useState("**Hello world!!!**");
   const preset_key = 'mkultra'
 
+  const [editorLoaded, setEditorLoaded] = useState(false);
+  const [data, setData] = useState("");
+  useEffect(() => {
+    setEditorLoaded(true);
+  }, []);
 
   const modules = {
     toolbar: [
@@ -249,11 +255,22 @@ function AddPost({ categories }) {
         {/* {categories.map((e, index) => {
           e.name
         })} */}
-        <div className="h-[65vh]">
+        <div className="">
           <label>Body *</label>
-          <QuillNoSSRWrapper forwardedRef={quillRef} className="h-[60vh] mb-10" value={value} onChange={setValue} modules={modules2} formats={formats} theme="snow" />
+          <div className="h-4/5">
+            <CKeditor
+              name="description"
+
+              onChange={(data) => {
+                setData(data);
+              }}
+              editorLoaded={editorLoaded}
+            />
+
+          </div>
+          {/* <QuillNoSSRWrapper forwardedRef={quillRef} className="h-[60vh] mb-10" value={value} onChange={setValue} modules={modules2} formats={formats} theme="snow" /> */}
         </div>
-        <label className="mt-10">Summary *</label>
+        <label className="">Summary *</label>
         <textarea maxLength={150} required name="summary" className="p-4 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[rgba(240,142,128,.1)]" placeholder="Enter Summary"></textarea>
         {/* <QuillNoSSRWrapper className="h-[60vh] mb-10"  theme="snow" /> */}
         <label>Select Post Image</label>
