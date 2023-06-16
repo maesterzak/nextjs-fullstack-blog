@@ -43,8 +43,8 @@ export default function Footer() {
                     <div className='col-span-4 md:col-span-1 lg:col-span-1 flex flex-col items-center gap-5'>
                         <h2 className='text-2xl font-semibold'>Company</h2>
                         <ul className='text-md'>
-                            <li><Link href={"/"}>About Us</Link></li>
-                            <li><Link href={"/"}>Contact Us</Link></li>
+                            <li><Link href={"/about-page"}>About Us</Link></li>
+                            <li><Link href={"/contact-us"}>Contact Us</Link></li>
                             <li><Link href={"/"}>Our Team Us</Link></li>
                             <li><Link href={"/"}>Advertise</Link></li>
                         </ul>
@@ -54,7 +54,7 @@ export default function Footer() {
                     <div className='col-span-4 md:col-span-1 lg:col-span-1 flex flex-col items-center md:items-start gap-5'>
                         <h2 className='text-2xl font-semibold'>Legal</h2>
                         <ul className='text-md'>
-                            <li><Link href={"/"}>Privacy Policy</Link></li>
+                            <li><Link href={"/privacy-policy"}>Privacy Policy</Link></li>
                             <li><Link href={"/"}>Terms of Service</Link></li>
                             <li><Link href={"/"}>Code of Conduct</Link></li>
                             <li><Link href={"/"}>Advertise</Link></li>
