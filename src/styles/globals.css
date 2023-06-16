@@ -21,7 +21,21 @@ body {
 * {
   box-sizing: border-box;
 }
-
+h1{
+  @apply text-2xl md:text-4xl lg:text-4xl;
+  @apply font-bold
+}
+h2{
+  @apply text-xl md:text-2xl lg:text-3xl;
+  @apply font-bold
+}
+input{
+  @apply outline-none border-2 border-grayBorder bg-primaryBackground p-3 focus:border-none
+  
+}
+textarea{
+  @apply outline-none border-2 border-grayBorder bg-primaryBackground p-3 focus:border-none
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: light;

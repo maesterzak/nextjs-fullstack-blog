@@ -28,7 +28,7 @@ export default function MainLayout({ children, param, meta }) {
                 <link rel="icon" href="/favicon.ico" />
 
             </Head>
-            <div className="w-full flex flex-wrap px-2  justify-center gap-4">
+            <div className="w-full flex flex-wrap   justify-center gap-4">
 
                 {children}
 

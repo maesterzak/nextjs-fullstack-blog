@@ -5,8 +5,8 @@ import PostCardTwo from "../PostCards/PostCardTwo";
 
 export default function Hero() {
   return (
-    <div className=" mx-auto  h-1/2 ">
-      <div className=" flex  h-[60%] overflow-hidden flex-col md:flex-row gap-2 md:justify-between ">
+    <div className=" mx-auto  lg:h-1/2 ">
+      <div className=" flex  lg:h-[60%] overflow-hidden flex-col md:flex-row gap-2 md:justify-between ">
         <div className="md:w-[50%] w-full">
           <PostCardOne />
 

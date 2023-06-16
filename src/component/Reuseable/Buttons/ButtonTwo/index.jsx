@@ -1,8 +1,7 @@
-export default function ButtonTwo({ text, type, onClickHandler }) {
+export default function ButtonTwo({ text, type, onClickHandler, classList = "" }) {
 
     return (
-        <button onClick={onClickHandler} type={type} className="inline-flex items-center px-4 py-2 mr-3 text-secondLink text-sm font-medium  bg-secondaryBackground border border-gray-300 rounded-lg text-white">
-
+        <button type={type} className={classList}>
             {text}
         </button>
     )
