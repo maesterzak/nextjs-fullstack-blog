@@ -4,7 +4,7 @@ export default function AboutPage() {
 
     return (
 
-        <div class="container mx-auto px-4 py-8">
+        <div class="container mx-auto px-4 py-8 lg:px-36 md:w-[70%] bg-thirdBackground">
             <h1 class="text-3xl font-bold mb-4">About</h1>
             <p class="text-lg mb-4">Welcome to our blog! We are passionate about sharing valuable information and insights in the world of [your blog&apos;s niche].</p>
             <p class="text-lg mb-4">Our goal is to provide you with engaging and informative content that covers a wide range of topics, including [specific topics or areas you cover].</p>

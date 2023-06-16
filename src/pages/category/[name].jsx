@@ -5,6 +5,7 @@ import PostCard from "@/component/postCard";
 import { useState } from "react";
 import React from "react";
 import Link from "next/link";
+import PostCardFour from "@/component/BlogComponents/PostCards/PostCardFour";
 
 
 // // Generates `/posts/1` and `/posts/2`
@@ -50,56 +51,52 @@ export default function CategoryPage({ articles, categoryName }) {
         title: categoryName + " Page",
         description: 'Amaizing site'
     }
+    const latestPosts = [1, 2, 3, 4, 5, 6, 7]
+    const categoryPosts = [1, 2, 3, 4, 5, 6]
 
     return (
         <MainLayout meta={metadata}>
-            <div className='w-[100%] md:w-[70%] ' >
-
-
-
-                <main className='flex flex-col justify-center'>
-                    <div className="flex mb-4 px-3 md:px-14">
-                        <div className="px-5 font-semibold text-xl py-2 rounded-sm text-secondLink w-[100px] mt-4 bg-secondaryBackground">
-                            {categoryName}
-
-
-                        </div>
+            <div className="grid grid-cols-8 gap-5 md:p-5 lg:px-36">
+                <div className="col-span-8 md:col-span-6 md:border-primaryColor/40 pb-12 md:border-r-2 p-4">
+                    <div className="p-10 border-primaryColor/40 pb-12 border-b-2 mb-10 ">
+                        <h1 className="text-linkColor2 text-4xl"> Politics</h1>
                     </div>
-                    {/* <Hero /> */}
 
-                    <div className='px-3 md:px-14 '>
+                    <div className="flex flex-col gap-10">
+                        {categoryPosts.map((e, index) => {
+                            return (
+                                <React.Fragment key={index}>
+                                    <PostCardFour />
+                                </React.Fragment>
+                            )
 
-                        <div className=' gap-3 flex flex-wrap justify-between'>
+                        })}
 
-                            {articlesList?.map((item, index) => {
-                                return (
-                                    <React.Fragment key={index}>
-                                        <PostCard data={item} />
-                                    </React.Fragment>
-                                )
-                            })}
+                    </div>
+                </div>
+                <div className="col-span-8 md:col-span-2 gap-5 flex flex-col">
+                    <h2>Recent Posts</h2>
+                    <div className="flex flex-col gap-5">
+                        {latestPosts.map((e, index) => {
+                            return (
+                                <Link key={index} href={"/"} className="text-linkColor2">15 Shocking Elon Musk Tweets About Stock Market</Link>
+                            )
+                        })}
 
-
-
-
-
-                        </div>
-                        <div className='flex justify-center gap-3 md:mt-4 mb-4'>
-                            {/* <Link href="#" className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium  bg-secondaryBackground border border-gray-300 rounded-lg text-white hover:text-[#505050]">
-                <svg aria-hidden="true" className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
-                Previous
-              </Link> */}
-                            <button className='w-full flex justify-center items-center bg-link h-10 rounded-3xl text-secondLink'>Load More</button>
-
-                        </div>
 
                     </div>
 
+                    <h2>Categories</h2>
+                    <div className="flex flex-col gap-5">
+                        {latestPosts.map((e, index) => {
+                            return (
+                                <Link key={index} href={"/"} className="text-linkColor2">15 Shocking Elon Musk Tweets About Stock Market</Link>
+                            )
+                        })}
 
 
-
-                </main>
-
+                    </div>
+                </div>
 
             </div>
 

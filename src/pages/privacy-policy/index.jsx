@@ -6,7 +6,7 @@ export default function PrivacyPolicyPage() {
 
     return (
         <MainLayout>
-            <div class="container mx-auto px-4 md:w-[70%] py-8">
+            <div class="container mx-auto px-4 py-8 lg:px-36 md:w-[70%] bg-thirdBackground">
                 <h1 class="text-3xl font-bold mb-4">Privacy Policy</h1>
                 <p class="text-lg mb-4">At [Your Blog Name], we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our website.</p>
                 <h2 class="text-xl font-bold mb-2">Information We Collect</h2>
