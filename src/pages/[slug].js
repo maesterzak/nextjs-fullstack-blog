@@ -1,11 +1,9 @@
-import { loadArticle } from "lib/server/loadArticle";
-import { loadArticles } from "lib/server/loadArticles";
+
 import Image from "next/image";
 import Link from "next/link";
 import MainLayout from "../component/Layout/MainLayout.jsx";
 import parse from "html-react-parser";
-import { ToastContainer, toast } from 'react-toastify';
-import { loadComments } from "lib/server/loadComments";
+import { toast } from 'react-toastify';
 import {
     FacebookShareButton,
     FacebookIcon,
@@ -27,7 +25,6 @@ import CommentCard from "@/component/BlogComponents/CommentsCard";
 import postData from "@/component/formHandlers/postHandler";
 import { useSession } from "next-auth/react";
 import React from "react";
-import { useState } from "react";
 import useSWR, { useSWRConfig } from "swr";
 import { mutate } from "swr";
 import axios from "axios";

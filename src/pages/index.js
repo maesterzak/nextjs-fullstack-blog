@@ -1,47 +1,37 @@
-import Featured from '@/component/Feautured'
-import PostCard from '@/component/postCard'
-import Head from 'next/head'
-import Image from 'next/image'
+
+
 import React from 'react'
 import Hero from '../component/BlogComponents/Hero'
-import Navbar from '../component/Navbar'
-import styles from '../styles/Home.module.css'
-import { loadArticles } from 'lib/server/loadArticles'
-import { useState } from 'react'
+
 import MainLayout from '../component/Layout/MainLayout.jsx'
-import Link from 'next/link'
-import { TruncateText } from '@/component/Reuseable/TruncateText'
-import PostCardLoader from '@/component/BlogComponents/LoadingScreens/PostCardLoader/index.jsx'
+
 import SectionOne from '@/component/BlogComponents/SectionOne'
 import SectionTwo from '@/component/BlogComponents/SectionTwo'
 import SectionThree from '@/component/BlogComponents/SectionThree'
 import SectionFour from '@/component/BlogComponents/SectionFour'
 
-export const getStaticProps = async () => {
-  let res = await loadArticles()
+// export const getStaticProps = async () => {
+//   let res = await loadArticles()
 
-  let data
+//   let data
 
-  if (res.success) {
-    data = res.data
-
-
-  }
+//   if (res.success) {
+//     data = res.data
 
 
+//   }
 
-  return {
-    props: { articles: data ?? null },
-    revalidate: 10, // In seconds
-  }
-}
+
+
+//   return {
+//     props: { articles: data ?? null },
+//     revalidate: 10, // In seconds
+//   }
+// }
 
 export default function Home({ articles }) {
 
-  const [articlesList, setArticlesList] = useState(articles)
 
-  // const post = [1, 2]
-  // const posts = [1, 2, 4, 4, 4, 4, 4, 4, 4, 4]
   let data = {
     title: 'Home Page',
     description: 'Amaizing site'

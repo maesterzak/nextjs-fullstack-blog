@@ -1,21 +1,24 @@
-import prisma from '../../../../../lib/prisma'
+import { apiUrl } from "utils";
 
 
 
 
 async function getAllArticle(req, res) {
+
     if (req.method === "GET") {
+        res.setHeader('Cache-Control', 's-maxage=3000')
 
-
-
+        let url = req.query
+        console.log("fccc", url)
         try {
 
-            const article = await prisma.article.findMany()
+            let res = await fetch(apiUrl + "articles/")
+            let response = await res.json()
 
-            if (article) {
-                return res.status(200).json({ success: true, data: article });
+            if (res.status == 200) {
+                return res.status(200).json({ success: true, data: response });
             } else {
-                return res.status(404).json({ success: false });
+                return res.status(res.status).json({ success: false });
             }
         } catch (err) {
 
