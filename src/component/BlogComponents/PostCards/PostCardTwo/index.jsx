@@ -2,65 +2,39 @@ import Image from "next/image";
 import Link from "next/link";
 import placeholder from '../../../../../public/img/ads-placeholder.png'
 import { images } from "@/images";
-import ImageLoading from "../../LoadingScreens/ImageLoading";
-import CategoryLoading from "../../LoadingScreens/CategoryLoading";
-import TitleLoading from "../../LoadingScreens/TitleLoading";
 
 
-export default function PostCardTwo({ topPosts }) {
+export default function PostCardTwo() {
 
     return (
-        <>
-            {topPosts ?
-                <div className="w-full h-auto">
-                    <div className="grid grid-cols-2 gap-2 h-auto ">
-                        <Link href={`/${topPosts.slug}`} className="bg-blue rounded-2xl overflow-hidden">
-                            <Image
-                                src={images.placeHolder}
-                                className="w-auto h-full object-fit"
+        <div className="w-full h-auto">
+            <div className="grid grid-cols-2 gap-2 h-auto">
+                <div className="bg-blue ">
+                    <Image
+                        src={images.placeHolder}
+                        className="w-auto h-full object-fit"
 
-                            // width={700}
-                            // height={700}
-                            // style={{
-                            //     width: "100%",
-                            //     height: "100%"
-                            // }}
-                            />
-                        </Link>
-                        <div className="p-2 md:py-6 flex justify-center flex-col gap-2">
-                            <Link href={`/category/${topPosts.category.slug}`} className="bg-primaryColor px-1 py-0.5 w-fit  text-buttonText text-xs">
-                                {topPosts.category.name}
-                            </Link>
-                            <Link href={`/${topPosts.slug}`} className="text-md md:text-xl font-bold ">{topPosts.title}</Link>
-                            <span className="text-xs">{topPosts.published_date}</span>
+                    // width={700}
+                    // height={700}
+                    // style={{
+                    //     width: "100%",
+                    //     height: "100%"
+                    // }}
+                    />
+                </div>
+                <div className="p-2 md:py-6 flex justify-center flex-col gap-2">
+                    <Link href={"/"} className="bg-primaryColor px-1 py-0.5 w-fit  text-buttonText text-xs">
+                        Technology
+                    </Link>
+                    <Link href={"/"} className="text-md md:text-xl font-bold ">Want a Career in Technology? Make This Your Secret Weapon</Link>
+                    <span className="text-xs">June 28, 2021</span>
 
-
-                        </div>
-
-
-                    </div>
 
                 </div>
-                :
-                <div className="w-full h-auto">
-                    <div className="grid grid-cols-2 gap-2 h-auto ">
-                        <div className="bg-blue rounded-2xl overflow-hidden">
-                            <ImageLoading />
-                        </div>
-                        <div className="p-2 md:py-6 flex justify-center flex-col gap-2">
-                            <CategoryLoading />
-                            <TitleLoading />
-                            <CategoryLoading />
 
 
+            </div>
 
-                        </div>
-
-
-                    </div>
-
-                </div>
-            }
-        </>
+        </div>
     )
 }

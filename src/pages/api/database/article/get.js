@@ -3,24 +3,25 @@ import { apiUrl } from "utils";
 
 
 
-async function getHeroArticles(req, res) {
+async function getAllArticle(req, res) {
 
     if (req.method === "GET") {
         res.setHeader('Cache-Control', 's-maxage=3000')
 
-
+        let url = req.query
+        console.log("fccc", url)
         try {
 
-            let backendRes = await fetch(apiUrl + "home/")
-            let response = await backendRes.json()
+            let res = await fetch(apiUrl + "articles/")
+            let response = await res.json()
 
-            if (backendRes.status == 200) {
-                return res.status(200).json({ success: true, data: response.data });
+            if (res.status == 200) {
+                return res.status(200).json({ success: true, data: response });
             } else {
-                return res.status(backendRes.status).json({ success: false });
+                return res.status(res.status).json({ success: false });
             }
         } catch (err) {
-            console.log("eddd", err)
+
             return res.status(500).json({ error: "Something is wrong", tt: err });
         }
     } else {
@@ -28,4 +29,4 @@ async function getHeroArticles(req, res) {
         return res.status(405).json({ error: `Method ${req.method} not allowed` });
     }
 };
-export default getHeroArticles;
+export default getAllArticle;

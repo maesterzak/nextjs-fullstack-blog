@@ -3,25 +3,20 @@ import Image from 'next/image'
 import { images } from '@/images'
 import Link from 'next/link'
 
-function PostCardFive({ data }) {
+function PostCardFive() {
     return (
         <div className='flex flex-col gap-1'>
             <div>
                 <Image
-                    src={data.image}
-                    width={700}
-                    height={700}
-                    style={{
-                        width: "100%",
-                        height: "100%"
-                    }}
+                    src={images.placeHolder3}
+                    className='w-full'
                 />
             </div>
             <div>
-                <Link className='text-lg md:text-xl lg:text-xl font-semibold' href={"/"}>{data.title}</Link>
+                <Link className='text-lg md:text-xl lg:text-xl font-semibold' href={"/"}>8 Surprising Ways Politics Can Affect You</Link>
             </div>
             <div>
-                <span className='text-linkColor2 text-sm md:text-md lg:text-lg'>{data.category.name}</span>
+                <span className='text-linkColor2 text-sm md:text-md lg:text-lg'>Politics</span>
             </div>
         </div>
     )

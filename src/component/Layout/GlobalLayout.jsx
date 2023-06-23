@@ -9,8 +9,8 @@ export default function Layout({ children }) {
             <div>
                 <Navbar />
             </div>
-            <div className=" flex justify-center ">
-                <div className="lg:container lg:px-8 w-full ">
+            <div className=" flex justify-center">
+                <div className="lg:container lg:px-8  ">
                     {children}
                 </div>
             </div>

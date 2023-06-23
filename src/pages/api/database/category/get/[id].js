@@ -1,21 +1,24 @@
-import prisma from '../../../../../lib/prisma'
+import prisma from '../../../../../../lib/prisma'
 
 
 
 
-async function getAllCategories(req, res) {
-
+async function getCategory(req, res) {
     if (req.method === "GET") {
+
+        let { id } = req.query
 
 
         try {
 
-            const cartegories = await prisma.category.findMany({
-
+            const articles = await prisma.category.findMany({
+                where: {
+                    categoryId: id
+                }
             })
 
-            if (cartegories) {
-                return res.status(200).json({ success: true, data: cartegories });
+            if (articles) {
+                return res.status(200).json({ success: true, data: articles });
             } else {
                 return res.status(404).json({ success: false });
             }
@@ -25,8 +28,7 @@ async function getAllCategories(req, res) {
         }
     } else {
         res.setHeader("Allow", ["GET"]);
-
         return res.status(405).json({ error: `Method ${req.method} not allowed` });
     }
 };
-export default getAllCategories;
+export default getCategory;

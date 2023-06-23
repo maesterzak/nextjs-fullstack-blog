@@ -1,13 +1,11 @@
-import Link from "next/link";
 
 
-export default function PostCardThree({ category, title, slug }) {
+export default function PostCardThree({ category, title }) {
 
     return (
         <div className="w-full mb-4">
-            <span className="text-xs">Recent Article  |  {category}</span>
-            <br />
-            <Link href={`/${slug}`} className="font-bold text-md ">{title}</Link>
+            <span className="text-xs">Editors Pick  |  {category}</span>
+            <p className="font-bold text-md ">{title}</p>
 
         </div>
     )
