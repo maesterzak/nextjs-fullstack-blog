@@ -1,8 +1,10 @@
+
+
 import { apiUrl } from "utils"
 
 
 
-async function getAllCategories(req, res) {
+async function getHomeCategoryPosts(req, res) {
 
     if (req.method === "GET") {
         res.setHeader('Cache-Control', 's-maxage=3000')
@@ -10,7 +12,7 @@ async function getAllCategories(req, res) {
 
         try {
 
-            let backendRes = await fetch(apiUrl + `categories/`)
+            let backendRes = await fetch(apiUrl + `home-categories-posts/`)
             let response = await backendRes.json()
 
             if (backendRes.status == 200) {
@@ -27,4 +29,4 @@ async function getAllCategories(req, res) {
         return res.status(405).json({ error: `Method ${req.method} not allowed` });
     }
 };
-export default getAllCategories;
+export default getHomeCategoryPosts;

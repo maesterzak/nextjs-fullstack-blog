@@ -2,19 +2,20 @@ import { apiUrl } from "utils"
 
 
 
-async function getAllCategories(req, res) {
+async function searchArticle(req, res) {
 
     if (req.method === "GET") {
-        res.setHeader('Cache-Control', 's-maxage=3000')
+
+        let q = req.query
 
 
         try {
 
-            let backendRes = await fetch(apiUrl + `categories/`)
+            let backendRes = await fetch(apiUrl + `search?q=${q.q}&page=${q.page}`)
             let response = await backendRes.json()
 
             if (backendRes.status == 200) {
-                return res.status(200).json({ success: true, data: response.data });
+                return res.status(200).json(response);
             } else {
                 return res.status(backendRes.status).json({ success: false });
             }
@@ -27,4 +28,4 @@ async function getAllCategories(req, res) {
         return res.status(405).json({ error: `Method ${req.method} not allowed` });
     }
 };
-export default getAllCategories;
+export default searchArticle;
