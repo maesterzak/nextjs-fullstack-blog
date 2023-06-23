@@ -9,8 +9,8 @@ export default function Footer() {
     return (
         <>
 
-            <footer className='lg:h-24 w-full lg:mb-12  md:px-5 lg:container mx-auto text-sm md:text-md flex-col gap-10'>
-                <div className='bg-thirdBackground p-5 md:p-10 grid grid-cols-8 border-2 border-primaryColor'>
+            <footer className='lg:h-24 w-full lg:mb-12 mt-10 md:px-5 lg:container mx-auto text-sm md:text-md flex-col gap-10'>
+                <div className='bg-thirdBackground p-5 md:p-10 grid grid-cols-8 border-2 border-primaryColor rounded-2xl'>
                     <div className='col-span-8 md:col-span-1 flex justify-center items-start'>
                         <Image
                             src={images.telegramIcon}
@@ -76,7 +76,7 @@ export default function Footer() {
                 </div>
                 <div className='flex flex-col md:flex-row justify-center md:justify-between text-sm items-center mt-20 mb-10 gap-3'>
                     <span>Copyright 2023 Info Blog</span>
-                    <span>Powered By Devmaesters</span>
+                    <span>Powered By <a href='https://devmaesters.com'>Devmaesters</a></span>
 
                 </div>
 

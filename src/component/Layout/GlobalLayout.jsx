@@ -5,12 +5,12 @@ import Navbar from "../Navbar";
 export default function Layout({ children }) {
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col ">
             <div>
                 <Navbar />
             </div>
-            <div className=" flex justify-center">
-                <div className="lg:container lg:px-8 px-2 ">
+            <div className=" flex justify-center ">
+                <div className="lg:container lg:px-8 w-full ">
                     {children}
                 </div>
             </div>

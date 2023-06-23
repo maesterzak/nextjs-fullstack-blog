@@ -1,23 +1,27 @@
-import { loadArticle } from 'lib/server/loadArticle';
-import prisma from '../../../../../../lib/prisma'
+import { apiUrl } from "utils";
 
 
 
 
-async function getArticle(req, res) {
+async function getSingelArticle(req, res) {
 
     if (req.method === "GET") {
+        res.setHeader('Cache-Control', 's-maxage=3000')
 
         let { slug } = req.query
-
-
+        console.log("slug", slug)
         try {
 
-            let data = await loadArticle(slug)
-            return res.status(200).json(data);
+            let backendRes = await fetch(apiUrl + `article/${slug}`)
+            let response = await backendRes.json()
 
+            if (backendRes.status == 200) {
+                return res.status(200).json({ success: true, data: response.data });
+            } else {
+                return res.status(backendRes.status).json({ success: false });
+            }
         } catch (err) {
-            console.log("iiii", err)
+            console.log("eddd", err)
             return res.status(500).json({ error: "Something is wrong", tt: err });
         }
     } else {
@@ -25,4 +29,4 @@ async function getArticle(req, res) {
         return res.status(405).json({ error: `Method ${req.method} not allowed` });
     }
 };
-export default getArticle;
+export default getSingelArticle;
