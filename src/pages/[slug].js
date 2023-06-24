@@ -39,7 +39,6 @@ export async function getStaticPaths() {
     let res = await fetch(apiUrl + "articles/")
     let response = await res.json()
 
-    console.log("path dat", response)
     const paths = response?.data?.map((article) => {
         return {
             params: { slug: article.slug },
@@ -72,7 +71,7 @@ function Post({ article, url }) {
 
     let { data, error, isLoading } = useSWR(url, fetcher, {
         fallbackData: article,
-        // revalidateOnFocus: false,
+        revalidateOnFocus: false,
     });
 
 

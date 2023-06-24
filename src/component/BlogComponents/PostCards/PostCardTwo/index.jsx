@@ -16,15 +16,16 @@ export default function PostCardTwo({ topPosts }) {
                     <div className="grid grid-cols-2 gap-2 h-auto ">
                         <Link href={`/${topPosts.slug}`} className="bg-blue rounded-2xl overflow-hidden">
                             <Image
-                                src={images.placeHolder}
-                                className="w-auto h-full object-fit"
+                                src={topPosts.image}
+                                // className="w-auto h-full object-fit"
+                                alt="top-post-img-01"
 
-                            // width={700}
-                            // height={700}
-                            // style={{
-                            //     width: "100%",
-                            //     height: "100%"
-                            // }}
+                                width={700}
+                                height={700}
+                                style={{
+                                    width: "100%",
+                                    height: "auto"
+                                }}
                             />
                         </Link>
                         <div className="p-2 md:py-6 flex justify-center flex-col gap-2">

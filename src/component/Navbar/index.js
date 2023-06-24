@@ -92,7 +92,8 @@ export default function Navbar() {
               </form>
               {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> </svg> */}
             </div>
-            <Button1 text={"Subscribe"} classList={"px-7 py-2 border-2 border-primaryColor rounded-xl flex justify-center items-center"} /></div>
+            {/* <Button1 text={"Subscribe"} classList={"px-7 py-2 border-2 border-primaryColor rounded-xl flex justify-center items-center"} /> */}
+          </div>
         </div>
 
       </div>
@@ -103,17 +104,15 @@ export default function Navbar() {
             <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
             <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
             <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
-            <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
-            <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
+
           </>
           :
           <>
-            <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">Automobile</Link>
-            <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">Automobile</Link>
-            <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">Automobile</Link>
-            <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">Automobile</Link>
-            <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">Automobile</Link>
-            <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">Automobile</Link>
+            {data.data.map((e, index) => {
+              return (
+                <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold">{e.name}</Link>
+              )
+            })}
           </>
 
         }
@@ -134,18 +133,32 @@ export default function Navbar() {
               <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
               <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
               <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
-              <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
-              <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
+
             </>
             :
             <>
-              {data.data.map((e, index) => {
+              {data?.data?.map((e, index) => {
                 return (
-                  <Link key={index} href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">{e.name}</Link>
+                  <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold">{e.name}</Link>
 
                 )
               })}
             </>}
+
+          <div className="flex flex-col gap-2 items-center mt-20">
+            <div className="p-1">
+              <form onSubmit={submitHandler} className="flex">
+                <input required className="h-[40px] w-full" name="search" placeholder="Search..." />
+                <div className="flex justify-center items-center p-1 border-2 ">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> </svg>
+                </div>
+                {/* <Button1 text={"Search"} classList={"px-3  border-2 outline-none rounded-r-lg border-primaryColor flex justify-center items-center"} /> */}
+              </form>
+              {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> </svg> */}
+            </div>
+
+            {/* <Button1 text={"Subscribe"} classList={"px-7 py-2 border-2 border-primaryColor rounded-xl flex justify-center items-center"} /> */}
+          </div>
 
         </div>
       </motion.div>

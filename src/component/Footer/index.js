@@ -10,7 +10,7 @@ export default function Footer() {
         <>
 
             <footer className='lg:h-24 w-full lg:mb-12 mt-10 md:px-5 lg:container mx-auto text-sm md:text-md flex-col gap-10'>
-                <div className='bg-thirdBackground p-5 md:p-10 grid grid-cols-8 border-2 border-primaryColor rounded-2xl'>
+                {/* <div className='bg-thirdBackground p-5 md:p-10 grid grid-cols-8 border-2 border-primaryColor rounded-2xl'>
                     <div className='col-span-8 md:col-span-1 flex justify-center items-start'>
                         <Image
                             src={images.telegramIcon}
@@ -31,7 +31,7 @@ export default function Footer() {
                     </div>
 
 
-                </div>
+                </div> */}
                 <div className='grid grid-cols-4 gap-5 mt-10'>
                     <div className='col-span-4 md:col-span-1 lg:col-span-1 flex flex-col gap-5'>
                         <h2 className='text-2xl font-semibold text-center md:text-start'>About</h2>

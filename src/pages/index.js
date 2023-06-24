@@ -28,9 +28,9 @@ export default function Home({ data }) {
       <div className='w-full border-primaryColor/40 pb-12 px-5 lg:px-0 border-b-2'>
         <SectionOne />
       </div>
-      <div className='w-full px-5 lg:px-0'>
+      {/* <div className='w-full px-5 lg:px-0'>
         <SectionTwo />
-      </div>
+      </div> */}
       <CategoriesSection />
 
     </MainLayout>

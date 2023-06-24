@@ -6,8 +6,7 @@ import CategoryLoading from '../../LoadingScreens/CategoryLoading'
 import BodyTextLoading from '../../LoadingScreens/BodyTextLoading'
 
 function CategoriesCardOne({ data }) {
-    console.log("fv, one", data)
-    const sample = [1, 2, 3]
+
     return (
         <>
             <div className='text-2xl  flex justify-between mt-6'>

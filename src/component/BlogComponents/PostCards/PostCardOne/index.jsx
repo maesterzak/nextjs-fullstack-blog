@@ -15,13 +15,14 @@ export default function PostCardOne({ heroMainPost }) {
                 <div className="w-full h-full">
                     <div className="w-full h-full relative md:rounded-2xl ,d:overflow-hidden">
                         <Image
-                            src={images.placeHolder01}
+                            src={heroMainPost.image}
                             width={700}
                             height={700}
                             style={{
                                 width: "100%",
                                 height: "100%"
                             }}
+                            alt="hero-img"
                         />
 
                         <div className="absolute p-5 bottom-0 flex flex-col w-full gap-2 bg-[black] bg-opacity-50">

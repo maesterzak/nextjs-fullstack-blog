@@ -12,8 +12,8 @@ function CommentForm() {
             </textarea>
             <div className='flex flex-col md:flex-row gap-5 justify-between'>
                 <input className=' w-full ' placeholder='Name' />
-                <input className=' w-full ' placeholder='Email' />
-                <input className=' w-full' placeholder='Website' />
+                {/* <input className=' w-full ' placeholder='Email' /> */}
+                {/* <input className=' w-full' placeholder='Website' /> */}
             </div>
             <div>
                 <ButtonTwo text={"Post Comment"} classList='hover:bg-primaryColor p-2 hover:text-buttonText text-md font-bold' />

@@ -11,7 +11,7 @@ function PostCardFour({ classList = "", data }) {
     return (
         <div className={classList}>
             <Link href={`/category/${data.category.slug}`} className='w-full h-auto '>
-                <Image src={images.placeHolder2} alt='article-image' width={700}
+                <Image src={data.image ?? images.placeHolder2} alt='article-image' width={700}
                     height={700}
                     style={{
                         width: "100%",
