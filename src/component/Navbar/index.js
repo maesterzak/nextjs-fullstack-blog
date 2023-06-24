@@ -138,7 +138,7 @@ export default function Navbar() {
             </>
             :
             <>
-              <Link key={index} href={`/`} className="px-5 py-2 font-bold">Home</Link>
+              <Link href={`/`} className="px-5 py-2 font-bold">Home</Link>
               {data?.data?.map((e, index) => {
                 return (
                   <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold">{e.name}</Link>
@@ -151,9 +151,9 @@ export default function Navbar() {
             <div className="p-1">
               <form onSubmit={submitHandler} className="flex">
                 <input required className="h-[40px] w-full" name="search" placeholder="Search..." />
-                <div className="flex justify-center items-center p-1 border-2 ">
+                <button type={"submit"} className="flex justify-center items-center p-1 border-2 ">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> </svg>
-                </div>
+                </button>
                 {/* <Button1 text={"Search"} classList={"px-3  border-2 outline-none rounded-r-lg border-primaryColor flex justify-center items-center"} /> */}
               </form>
               {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> </svg> */}
