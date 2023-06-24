@@ -12,7 +12,7 @@ function CategoriesCardTwo({ data }) {
 
             {data.map((e, index) => {
                 return (
-                    <div className='md:w-1/2 flex flex-col gap-6'>
+                    <div key={index} className='md:w-1/2 flex flex-col gap-6'>
                         <div className='text-2xl  flex justify-between mt-6'>
                             <h2 className='font-bold'>{e.category.name}</h2> <Link className='font-semibold text-lg' href={"/"}>View All <span className='font-bold '>&rarr;</span></Link>
                         </div>

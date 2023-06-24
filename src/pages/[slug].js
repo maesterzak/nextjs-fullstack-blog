@@ -32,14 +32,15 @@ import { images } from "@/images/index.js";
 import PostCardFive from "@/component/BlogComponents/PostCards/PostCardFive/index.jsx";
 import CommentForm from "@/component/BlogComponents/CommentSection/CommentForm/index.jsx";
 import { apiUrl } from "utils/index.js";
+import { data } from "autoprefixer";
 
 // Generates `/posts/1` and `/posts/2`
 export async function getStaticPaths() {
     let res = await fetch(apiUrl + "articles/")
     let response = await res.json()
 
-
-    const paths = response.data.map((article) => {
+    console.log("path dat", response)
+    const paths = response?.data?.map((article) => {
         return {
             params: { slug: article.slug },
         };
@@ -192,13 +193,13 @@ function Post({ article, url }) {
                 </div>
 
 
-                {similar_articles.length > 0 &&
+                {similar_articles?.length > 0 &&
                     <div className="bg-thirdBackground  md:p-10 flex flex-col gap-5 p-10">
                         <div className='text-2xl  flex justify-between mt-6'>
                             <h2 className='font-bold'>Similar Posts</h2>
                         </div>
                         <div className="grid grid-cols-4 gap-10 md:gap-5">
-                            {similar_articles.map((e, index) => {
+                            {similar_articles?.map((e, index) => {
                                 return (
                                     <div key={index} className="col-span-4 md:col-span-2">
                                         <PostCardFive data={e} />

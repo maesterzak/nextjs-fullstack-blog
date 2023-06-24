@@ -1,9 +1,7 @@
 import MainLayout from "@/component/Layout/MainLayout.jsx";
 
-import PostCard from "@/component/postCard";
-import { useState } from "react";
+
 import React from "react";
-import Link from "next/link";
 import PostCardFour from "@/component/BlogComponents/PostCards/PostCardFour";
 import { apiUrl } from "utils";
 import ImageLoading from "@/component/BlogComponents/LoadingScreens/ImageLoading";
@@ -12,7 +10,7 @@ import TitleLoading from "@/component/BlogComponents/LoadingScreens/TitleLoading
 import BodyTextLoading from "@/component/BlogComponents/LoadingScreens/BodyTextLoading";
 import AllCategoriesSection from "@/component/BlogComponents/AllCategoriesSection";
 import RecentArticlesSection from "@/component/BlogComponents/RecentArticlesSection";
-import useSWR, { useSWRConfig } from "swr";
+import useSWR from "swr";
 import axios from "axios";
 
 export const getServerSideProps = async (context) => {
@@ -40,7 +38,7 @@ const fetcher = (url) => axios(url).then(r => r.data);
 
 export default function CategoryPage({ articles, slug }) {
 
-    console.log("kkkk", articles)
+
     let { data, error, isLoading } = useSWR(`/api/database/category/${slug}/`, fetcher, {
         fallback: articles,
         revalidateOnFocus: false,

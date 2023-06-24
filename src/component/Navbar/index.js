@@ -141,7 +141,7 @@ export default function Navbar() {
             <>
               {data.data.map((e, index) => {
                 return (
-                  <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">{e.name}</Link>
+                  <Link key={index} href={"/"} className="px-5 py-2 shadow-xl rounded-lg  hover:shadow-3xl">{e.name}</Link>
 
                 )
               })}
