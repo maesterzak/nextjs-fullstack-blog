@@ -71,12 +71,12 @@ export default function Navbar() {
 
       <div className="lg:container mx-auto px-5 py-5 lg:px-5">
         <div className="flex w-full items-center justify-between">
-          <div className="flex items-center gap-1">
+          <Link href={"/"} className="flex items-center gap-1">
             <div className="bg-[red] w-16 h-16 rounded-full overflow-hidden">
 
             </div>
             <span className="text-2xl">Haylisters</span>
-          </div>
+          </Link>
 
 
           <button onClick={handleClick} className="flex flex-col md:hidden leading-[6px] font-bold text-xl">
@@ -108,6 +108,7 @@ export default function Navbar() {
           </>
           :
           <>
+            <Link href={`/`} className="px-5 py-2 font-bold">Home</Link>
             {data.data.map((e, index) => {
               return (
                 <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold">{e.name}</Link>
@@ -137,6 +138,7 @@ export default function Navbar() {
             </>
             :
             <>
+              <Link key={index} href={`/`} className="px-5 py-2 font-bold">Home</Link>
               {data?.data?.map((e, index) => {
                 return (
                   <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold">{e.name}</Link>

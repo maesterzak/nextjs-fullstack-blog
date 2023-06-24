@@ -18,7 +18,7 @@ function PostCardFive({ data }) {
                 />
             </div>
             <div>
-                <Link className='text-lg md:text-xl lg:text-xl font-semibold' href={"/"}>{data.title}</Link>
+                <Link className='text-lg md:text-xl lg:text-xl font-semibold' href={`/${data.slug}`}>{data.title}</Link>
             </div>
             <div>
                 <span className='text-linkColor2 text-sm md:text-md lg:text-lg'>{data.category.name}</span>
