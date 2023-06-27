@@ -10,7 +10,7 @@ function PostCardFour({ classList = "", data }) {
     console.log("fcb", data)
     return (
         <div className={classList}>
-            <Link href={`/category/${data.category.slug}`} className='w-full h-auto '>
+            <Link href={`/${data.slug}`} className='w-full h-auto '>
                 <Image src={data.image ?? images.placeHolder2} alt='article-image' width={700}
                     height={700}
                     style={{
@@ -24,7 +24,7 @@ function PostCardFour({ classList = "", data }) {
             <Link href={`/category/${data.category.slug}`} className="bg-categoryBackgroundColor px-2 py-0.5 w-fit rounded-lg   text-buttonText text-xs'">{data.category.name}</Link>
             <h2 className='font-bold pr-2'>{data.title}</h2>
             <div className='flex gap-4 text-xs'>
-                <Link className='text-linkColor2' href={`/${data.slug}`}>{data.author.user.first_name} {data.author.user.last_name}</Link> <span>{data.published_date}</span>
+                <span className='' >{data.author.user.first_name} {data.author.user.last_name}</span> <span>{data.published_date}</span>
             </div>
             <p className='pr-1 mb-3'>
                 {TruncateText(200, data.body)}

@@ -12,7 +12,9 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     position: relative;
     @apply text-primaryColor;
-    @apply  bg-primaryBackground;
+   
+   
+
     
 }
 

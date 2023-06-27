@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
     <SessionProvider session={pageProps.session}>
       <StoreProvider>
 
-        <div className={`${montserrat.variable}  font-mono bg-primaryBackground`}>
+        <div className={`${montserrat.variable}  font-mono `}>
           <Layout>
             <Component {...pageProps} />
           </Layout>

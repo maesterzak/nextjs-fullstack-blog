@@ -80,9 +80,9 @@ export default function Navbar() {
 
 
           <button onClick={handleClick} className="flex flex-col md:hidden leading-[6px] font-bold text-xl">
-            <span className={`bg-[black] block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${isOPen ? "rotate-45 translate-y-2S" : "-translate-y-1"}`}></span>
-            <span className={`bg-[black] block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOPen ? 'opacity-0' : 'opacity-100'}`}></span>
-            <span className={`bg-[black] block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${isOPen ? "-rotate-45 -translate-y-2" : "translate-y-1"}`}></span>
+            <span className={`bg-[#fff] block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${isOPen ? "rotate-45 translate-y-2S" : "-translate-y-1"}`}></span>
+            <span className={`bg-[#fff] block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOPen ? 'opacity-0' : 'opacity-100'}`}></span>
+            <span className={`bg-[#fff] block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${isOPen ? "-rotate-45 -translate-y-2" : "translate-y-1"}`}></span>
           </button>
 
           <div className="hidden md:flex gap-2 items-center">
@@ -108,10 +108,10 @@ export default function Navbar() {
           </>
           :
           <>
-            <Link href={`/`} className="px-5 py-2 font-bold shadow-xl rounded-lg hover:border-secondLink hover:border-2">Home</Link>
+            <Link href={`/`} className="px-5 py-2 font-bold shadow-xl rounded-lg hover:bg-secondaryBackground">Home</Link>
             {data.data.map((e, index) => {
               return (
-                <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold shadow-xl rounded-lg hover:border-secondLink hover:border-2">{e.name}</Link>
+                <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 hover:bg-secondaryBackground font-bold shadow-2xl rounded-lg ">{e.name}</Link>
               )
             })}
           </>
@@ -138,10 +138,10 @@ export default function Navbar() {
             </>
             :
             <>
-              <Link href={`/`} className="px-5 py-2 font-bold">Home</Link>
+              <Link href={`/`} onClick={() => setIsOpen(false)} className="px-5 py-2 font-bold">Home</Link>
               {data?.data?.map((e, index) => {
                 return (
-                  <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold">{e.name}</Link>
+                  <Link key={index} onClick={() => setIsOpen(false)} href={`/category/${e.slug}`} className="px-5 py-2 font-bold">{e.name}</Link>
 
                 )
               })}

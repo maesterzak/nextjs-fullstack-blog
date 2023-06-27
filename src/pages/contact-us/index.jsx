@@ -13,7 +13,7 @@ export default function ContactUsPage() {
 
     return (
         <MainLayout>
-            <div class="container mx-auto px-4 py-8 lg:px-36 bg-thirdBackground">
+            <div class="container mx-auto px-4 py-8 lg:px-36 ">
                 <div className="grid grid-cols-8 gap-10">
                     <div className="col-span-8 md:col-span-4">
                         <h1 class="text-3xl font-bold mb-4">Contact Us</h1>

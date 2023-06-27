@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 function PostCardFive({ data }) {
     return (
-        <div className='flex flex-col gap-1'>
-            <div>
+        <div className='flex flex-col gap-5'>
+            <Link href={`/${data.slug}`}>
                 <Image
                     src={data.image}
                     width={700}
@@ -14,14 +14,16 @@ function PostCardFive({ data }) {
                     style={{
                         width: "100%",
                         height: "100%"
+
                     }}
+                    className='rounded-2xl'
                 />
-            </div>
+            </Link>
             <div>
                 <Link className='text-lg md:text-xl lg:text-xl font-semibold' href={`/${data.slug}`}>{data.title}</Link>
             </div>
             <div>
-                <Link href={`/category/${data.category.slug}`} className='text-linkColor text-sm md:text-md lg:text-lg bg-categoryBackgroundColor px-2 py-0.5 rounded-lg '>{data.category.name}</Link>
+                <Link href={`/category/${data.category.slug}`} className=' text-sm md:text-md lg:text-lg   py-0.5 rounded-lg text-linkColor2'>{data.category.name}</Link>
             </div>
         </div>
     )

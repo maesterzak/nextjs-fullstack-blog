@@ -13,7 +13,7 @@ export default function PostCardOne({ heroMainPost }) {
         <>
             {heroMainPost ?
                 <div className="w-full h-full">
-                    <div className="w-full h-full relative md:rounded-2xl ,d:overflow-hidden">
+                    <div className="w-full h-full relative md:rounded-2xl overflow-hidden">
                         <Image
                             src={heroMainPost.image}
                             width={700}
