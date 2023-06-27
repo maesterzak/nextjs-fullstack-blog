@@ -9,7 +9,7 @@ import { TruncateText } from '@/component/Reuseable/TruncateText';
 function PostCardFour({ classList = "", data }) {
     console.log("fcb", data)
     return (
-        <div className={classList}>
+        <div className={`${classList} flex flex-col gap-3`}>
             <Link href={`/${data.slug}`} className='w-full h-auto '>
                 <Image src={data.image ?? images.placeHolder2} alt='article-image' width={700}
                     height={700}
@@ -21,6 +21,7 @@ function PostCardFour({ classList = "", data }) {
                 />
 
             </Link>
+
             <Link href={`/category/${data.category.slug}`} className="bg-categoryBackgroundColor px-2 py-0.5 w-fit rounded-lg mt-5  text-buttonText text-xs'">{data.category.name}</Link>
             <h2 className='font-bold pr-2'>{data.title}</h2>
             <div className='flex gap-4 text-xs'>
