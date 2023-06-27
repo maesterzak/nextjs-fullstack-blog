@@ -1,5 +1,5 @@
 import React from 'react'
-import useSWR,   { useSWRConfig } from "swr";
+import useSWR, { useSWRConfig } from "swr";
 import TitleLoading from '../LoadingScreens/TitleLoading';
 import axios from 'axios';
 import Link from 'next/link';
@@ -43,7 +43,7 @@ function AllCategoriesSection() {
             <div className="flex flex-col gap-5">
                 {data?.data.map((e, index) => {
                     return (
-                        <Link key={index} href={`/category/${e.slug}`} className="text-linkColor2">{e.name}</Link>
+                        <Link key={index} href={`/category/${e.slug}`} className="">{e.name}</Link>
                     )
                 })}
 

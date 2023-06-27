@@ -21,7 +21,7 @@ function PostCardFive({ data }) {
                 <Link className='text-lg md:text-xl lg:text-xl font-semibold' href={`/${data.slug}`}>{data.title}</Link>
             </div>
             <div>
-                <span className='text-linkColor2 text-sm md:text-md lg:text-lg'>{data.category.name}</span>
+                <Link href={`/category/${data.category.slug}`} className='text-linkColor text-sm md:text-md lg:text-lg bg-categoryBackgroundColor px-2 py-0.5 rounded-lg '>{data.category.name}</Link>
             </div>
         </div>
     )

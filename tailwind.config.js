@@ -18,21 +18,23 @@ module.exports = {
     },
     colors: {
       primaryBackground: "#f7f7f8",
-      secondaryBackground: "#7746c7",
+      secondaryBackground: "#f578b7",
       link: "#250657",
       secondLink: "#ffff",
       textLigh: "",
-      categoryBackgroundColor: "rgba(240,142,128,.1)",
+      categoryBackgroundColor: "#fcce32",
       categoryLinkColor: "#152035",
       loadingSkeleton: "#d3d3d3",
 
       primaryColor: "#45485F",
       linkColor1: "#22242f",
-      linkColor2: "#1818DC",
+      linkColor2: "#fcce32",
       buttonText: "#ffff",
       grayBackground: "#FAFAFA",
       grayBorder: "#dddddd",
-      thirdBackground: "#ffff"
+      thirdBackground: "#d1649c"
+
+
 
 
 

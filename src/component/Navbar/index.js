@@ -67,7 +67,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className=" w-full md:mb-10    sticky   z-10  bg-thirdBackground top-0 ">
+    <nav className=" w-full md:mb-10    sticky   z-10  bg-secondaryBackground top-0 ">
 
       <div className="lg:container mx-auto px-5 py-5 lg:px-5">
         <div className="flex w-full items-center justify-between">
@@ -75,7 +75,7 @@ export default function Navbar() {
             <div className="bg-[red] w-16 h-16 rounded-full overflow-hidden">
 
             </div>
-            <span className="text-2xl">Haylisters</span>
+            <span className="text-2xl text-secondLink font-bold">Haylisters</span>
           </Link>
 
 
@@ -88,7 +88,7 @@ export default function Navbar() {
           <div className="hidden md:flex gap-2 items-center">
             <div className="hidden md:block">
               <form onSubmit={submitHandler} className="flex">
-                <input required className="h-[40px]" name="search" placeholder="Search..." /><Button1 text={"Search"} classList={"px-3  border-2 outline-none rounded-r-lg border-primaryColor flex justify-center items-center"} />
+                <input required className="h-[40px]" name="search" placeholder="Search..." /><Button1 text={"Search"} classList={"px-3   outline-none rounded-r-lg  flex justify-center items-center bg-categoryBackgroundColor text-secondLink "} />
               </form>
               {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> </svg> */}
             </div>
@@ -97,7 +97,7 @@ export default function Navbar() {
         </div>
 
       </div>
-      <div className="mt-2 hidden md:flex py-2 justify-center gap-3  bg-loadingSkeleton ">
+      <div className="mt-2 hidden md:flex py-2 justify-center gap-3  bg-thirdBackground text-secondLink ">
         {isLoading || error ?
           <>
             <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>
@@ -108,10 +108,10 @@ export default function Navbar() {
           </>
           :
           <>
-            <Link href={`/`} className="px-5 py-2 font-bold">Home</Link>
+            <Link href={`/`} className="px-5 py-2 font-bold shadow-xl rounded-lg hover:border-secondLink hover:border-2">Home</Link>
             {data.data.map((e, index) => {
               return (
-                <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold">{e.name}</Link>
+                <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold shadow-xl rounded-lg hover:border-secondLink hover:border-2">{e.name}</Link>
               )
             })}
           </>
@@ -127,7 +127,7 @@ export default function Navbar() {
         animate={{ x: isOPen ? "0%" : "-100%", width: "100%" }}
         transition={{ duration: 0.7, ease: "easeIn" }}
         onClick={() => setIsOpen(false)} className=" backdrop-blur-sm  fixed top-0 h-full ">
-        <div onClick={(e) => e.stopPropagation()} className=" w-3/5 h-full bg-primaryBackground top-0 flex flex-col items-center py-10 gap-5">
+        <div onClick={(e) => e.stopPropagation()} className=" w-3/5 h-full bg-thirdBackground text-secondLink top-0 flex flex-col items-center py-10 gap-5">
           {isLoading || error ?
             <>
               <Link href={"/"} className="px-5 py-2 shadow-xl rounded-lg text-[#fff] bg-loadingSkeleton animate-pulse hover:shadow-3xl">Loading</Link>

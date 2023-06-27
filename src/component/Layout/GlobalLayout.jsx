@@ -14,7 +14,7 @@ export default function Layout({ children }) {
                     {children}
                 </div>
             </div>
-            <div className="">
+            <div className="bg-thirdBackground mt-10">
                 <div >
                     <Footer />
                 </div>

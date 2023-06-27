@@ -21,7 +21,7 @@ function PostCardFour({ classList = "", data }) {
                 />
 
             </Link>
-            <Link className='text-linkColor2 text-xs' href={`/category/${data.category.slug}`}>{data.category.name}</Link>
+            <Link href={`/category/${data.category.slug}`} className="bg-categoryBackgroundColor px-2 py-0.5 w-fit rounded-lg   text-buttonText text-xs'">{data.category.name}</Link>
             <h2 className='font-bold pr-2'>{data.title}</h2>
             <div className='flex gap-4 text-xs'>
                 <Link className='text-linkColor2' href={`/${data.slug}`}>{data.author.user.first_name} {data.author.user.last_name}</Link> <span>{data.published_date}</span>

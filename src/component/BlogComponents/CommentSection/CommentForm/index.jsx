@@ -4,7 +4,7 @@ import React from 'react'
 
 function CommentForm() {
     return (
-        <form className='bg-thirdBackground p-10  md:p-10 flex flex-col gap-5'>
+        <form className='bg-thirdBackground text-secondLink p-10  md:p-10 flex flex-col gap-5'>
             <h2>Leave a Comment</h2>
             <span>Your Email address will not be published, Required fields are marked *</span>
             <textarea className=' h-60' placeholder='Type here'>
@@ -16,7 +16,7 @@ function CommentForm() {
                 {/* <input className=' w-full' placeholder='Website' /> */}
             </div>
             <div>
-                <ButtonTwo text={"Post Comment"} classList='hover:bg-primaryColor p-2 hover:text-buttonText text-md font-bold' />
+                <ButtonTwo text={"Post Comment"} classList='hover:bg-categoryBackgroundColor p-2 hover:text-buttonText text-md font-bold' />
             </div>
 
         </form>

@@ -29,7 +29,7 @@ export default function PostCardTwo({ topPosts }) {
                             />
                         </Link>
                         <div className="p-2 md:py-6 flex justify-center flex-col gap-2">
-                            <Link href={`/category/${topPosts.category.slug}`} className="bg-primaryColor px-1 py-0.5 w-fit  text-buttonText text-xs">
+                            <Link href={`/category/${topPosts.category.slug}`} className="bg-categoryBackgroundColor px-2 py-0.5 w-fit  text-buttonText  rounded-lg">
                                 {topPosts.category.name}
                             </Link>
                             <Link href={`/${topPosts.slug}`} className="text-md md:text-xl font-bold ">{topPosts.title}</Link>

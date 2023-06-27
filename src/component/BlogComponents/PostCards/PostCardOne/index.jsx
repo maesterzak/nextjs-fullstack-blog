@@ -26,7 +26,7 @@ export default function PostCardOne({ heroMainPost }) {
                         />
 
                         <div className="absolute p-5 bottom-0 flex flex-col w-full gap-2 bg-[black] bg-opacity-50">
-                            <Link href={`/category/${heroMainPost.category.slug}`} className="bg-primaryColor px-1 py-0.5 w-fit  text-buttonText text-xs">
+                            <Link href={`/category/${heroMainPost.category.slug}`} className="bg-categoryBackgroundColor px-1 py-0.5 w-fit  text-buttonText rounded-lg">
                                 {heroMainPost.category.name}
                             </Link>
                             <Link href={`/${heroMainPost.slug}`} className="text-xl font-bold text-buttonText md:text-2xl  drop-shadow-[0_50px_40px_rgba(0,0,0,0.25)]">{heroMainPost.title}</Link>

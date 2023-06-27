@@ -193,7 +193,7 @@ function Post({ article, url }) {
 
 
                 {similar_articles?.length > 0 &&
-                    <div className="bg-thirdBackground  md:p-10 flex flex-col gap-5 p-10">
+                    <div className="bg-thirdBackground text-secondLink md:p-10 flex flex-col gap-5 p-10">
                         <div className='text-2xl  flex justify-between mt-6'>
                             <h2 className='font-bold'>Similar Posts</h2>
                         </div>
