@@ -18,7 +18,7 @@ module.exports = {
     },
     colors: {
       primaryBackground: "#f7f7f8",
-      secondaryBackground: "#f578b7",
+      secondaryBackground: "#ff00ff",
       link: "#250657",
       secondLink: "#ffff",
       textLigh: "",
@@ -32,7 +32,7 @@ module.exports = {
       buttonText: "#ffff",
       grayBackground: "#FAFAFA",
       grayBorder: "#dddddd",
-      thirdBackground: "#d1649c"
+      thirdBackground: "#ff04ffb0"
 
 
 

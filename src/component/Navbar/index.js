@@ -69,7 +69,7 @@ export default function Navbar() {
   return (
     <nav className=" w-full md:mb-10    sticky   z-10  bg-secondaryBackground top-0 ">
 
-      <div className="lg:container mx-auto px-5 py-5 lg:px-5">
+      <div className="lg:container mx-auto px-5 py-1 lg:px-5">
         <div className="flex w-full items-center justify-between">
           <Link href={"/"} className="flex items-center gap-1">
             <div className="bg-[red] w-16 h-16 rounded-full overflow-hidden">
@@ -86,13 +86,13 @@ export default function Navbar() {
           </button>
 
           <div className="hidden md:flex gap-2 items-center">
-            <div className="hidden md:block">
-              <form onSubmit={submitHandler} className="flex">
+            <div className="hidden md:block ">
+              <form onSubmit={submitHandler} className="flex overflow-hidden">
                 <input required className="h-[40px]" name="search" placeholder="Search..." /><Button1 text={"Search"} classList={"px-3   outline-none rounded-r-lg  flex justify-center items-center bg-categoryBackgroundColor text-secondLink "} />
               </form>
               {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> </svg> */}
             </div>
-            {/* <Button1 text={"Subscribe"} classList={"px-7 py-2 border-2 border-primaryColor rounded-xl flex justify-center items-center"} /> */}
+            <Button1 text={"Join"} classList={"px-7 py-2 overflow-hidden bg-categoryBackgroundColor outline-none  rounded-xl flex justify-center items-center"} />
           </div>
         </div>
 
