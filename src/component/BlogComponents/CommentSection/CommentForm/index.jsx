@@ -7,16 +7,16 @@ function CommentForm() {
         <form className=' p-10  md:p-10 flex flex-col gap-5 bg-[#ffff]'>
             <h2>Leave a Comment</h2>
             <span>Your Name will be saved for future comments</span>
-            <textarea required className=' h-60' placeholder='Type here'>
+            <textarea required className=' h-60 rounded-2xl' placeholder='Type here'>
 
             </textarea>
             <div className='flex flex-col md:flex-row gap-5 justify-between'>
-                <input required className=' w-full ' placeholder='Name' />
+                <input required className=' w-full rounded-2xl' placeholder='Name' />
                 {/* <input className=' w-full ' placeholder='Email' /> */}
                 {/* <input className=' w-full' placeholder='Website' /> */}
             </div>
             <div>
-                <ButtonTwo text={"Post Comment"} classList='hover:bg-categoryBackgroundColor p-2 hover:text-buttonText text-md font-bold' />
+                <ButtonTwo text={"Post Comment"} classList='hover:bg-categoryBackgroundColor p-2 rounded-2xl hover:text-buttonText text-md font-bold' />
             </div>
 
         </form>

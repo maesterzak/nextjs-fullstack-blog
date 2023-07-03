@@ -43,7 +43,7 @@ function AllCategoriesSection() {
             <div className="flex flex-col gap-5">
                 {data?.data.map((e, index) => {
                     return (
-                        <Link key={index} href={`/category/${e.slug}`} className="">{e.name}</Link>
+                        <Link key={index} href={`/category/${e.slug}`} className="hover:text-categoryBackgroundColor">{e.name}</Link>
                     )
                 })}
 

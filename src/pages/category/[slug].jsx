@@ -58,7 +58,7 @@ export default function CategoryPage({ articles, slug }) {
                 <div className="col-span-8 md:col-span-6 md:border-primaryColor/40 pb-12 md:border-r-2 p-4">
                     <div className="p-10 border-primaryColor/40 pb-12 border-b-2 mb-10 ">
                         {data?.count > 0 ?
-                            <h1 className="text-linkColor2 text-4xl"> {data.results[0].category.name}</h1>
+                            <h1 className=" text-4xl"> {data.results[0].category.name}</h1>
                             :
                             <CategoryLoading />}
 

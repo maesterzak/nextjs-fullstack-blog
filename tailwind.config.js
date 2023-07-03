@@ -18,7 +18,7 @@ module.exports = {
     },
     colors: {
       primaryBackground: "#f7f7f8",
-      secondaryBackground: "#ff00ff",
+      secondaryBackground: "#ff0080",
       link: "#250657",
       secondLink: "#ffff",
       textLigh: "",

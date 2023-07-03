@@ -92,7 +92,7 @@ export default function Navbar() {
               </form>
               {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" /> </svg> */}
             </div>
-            <Button1 text={"Join"} classList={"px-7 py-2 overflow-hidden bg-categoryBackgroundColor outline-none  rounded-xl flex justify-center items-center"} />
+            <Button1 text={"Newsletter"} classList={"px-7 py-2 overflow-hidden bg-categoryBackgroundColor outline-none text-[#fff]  rounded-xl flex justify-center items-center"} />
           </div>
         </div>
 
@@ -108,10 +108,10 @@ export default function Navbar() {
           </>
           :
           <>
-            <Link href={`/`} className="px-5 py-2 font-bold shadow-xl rounded-lg hover:bg-secondaryBackground">Home</Link>
+            <Link href={`/`} className="px-5 py-2 font-bold shadow-xl rounded-2xl hover:bg-[#fcce32] ">Home</Link>
             {data.data.map((e, index) => {
               return (
-                <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 hover:bg-secondaryBackground font-bold shadow-2xl rounded-lg ">{e.name}</Link>
+                <Link key={index} href={`/category/${e.slug}`} className="px-5 py-2 font-bold shadow-2xl rounded-2xl hover:bg-[#fcce32] ">{e.name}</Link>
               )
             })}
           </>

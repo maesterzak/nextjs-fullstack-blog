@@ -43,7 +43,7 @@ function RecentArticlesSection() {
             <div className="flex flex-col gap-5">
                 {data?.data.map((e, index) => {
                     return (
-                        <Link key={index} href={`/${e.slug}`} className="text-primaryColor">{e.title}</Link>
+                        <Link key={index} href={`/${e.slug}`} className="text-primaryColor hover:text-categoryBackgroundColor">{e.title}</Link>
                     )
                 })}
 

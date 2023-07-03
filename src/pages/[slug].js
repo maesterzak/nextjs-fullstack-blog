@@ -169,7 +169,7 @@ function Post({ article, url }) {
 
             < div className="  lg:px-36 flex flex-col gap-10 ">
                 <div className="bg-[#ffff] p-5  md:p-10 flex flex-col gap-5 ">
-                    <div>
+                    <div className="rounded-2xl overflow-hidden">
                         <Image
                             src={article_data.image}
                             width={700}
